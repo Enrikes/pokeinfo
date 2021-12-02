@@ -23,7 +23,28 @@ fetch('https://pokeapi.co/api/v2/pokemon/1')
     } else {
         pokeTypeTwo.classList.add('hide');
         pokeSecondType.textContent = '';
+    };
+    totalAmount:number = 0;
+    for(let i=0;i<data.length;i++){
+        totalAmount = totalAmount  + this.data[i].results;
+        
     }
 
 
 });
+
+
+fetch('https://pokeapi.co/api/v2/pokemon?limit=900')
+.then(res => res.json())
+.then(data => { 
+
+console.log(data.results[1].name)
+
+for (var i = 0; i < 1118; i+=1) {
+    console.log(data)
+    console.log(data.results[i].name)
+
+};
+
+
+})
