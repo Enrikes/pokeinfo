@@ -50,4 +50,20 @@ for (let i = 0; i < pokeName.length ; i++) {
     } 
 } 
 
+});
+
+
+fetch('https://pokeapi.co/api/v2/pokemon?limit=900')
+.then(res => res.json())
+.then(data => { 
+
+console.log(data.results[1].name)
+
+for (var i = 0; i < 1118; i+=1) {
+    console.log(data)
+    console.log(data.results[i].name)
+
+};
+
+
 })
