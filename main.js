@@ -35,6 +35,22 @@ for (var i = 0; i < 1118; i+=1) {
     // console.log(data.results[i].pokemon)
 
 };
+// This grabs the pokemon name with URL
+async function grabPokemon() {
+    const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10');
+    const data = await res.json();
+console.log(data);
+    for (pokemon of data.results) {
+        console.log(pokemon);
+    }
+}
+async function grabSinglePokeURL() {
+    console.log(data.results);
+}
+async function main(){
+    console.log(await grabPokemon())
+}
+console.log(grabPokemon(data));
 
 const pokeName = document.querySelectorAll('.poke-name');
 for (let i = 0; i < pokeName.length ; i++) {
