@@ -1,4 +1,4 @@
-// fetch('https://pokeapi.co/api/v2/pokemon/1')
+// fetch('https://pokeapi.co/api/v2/pokemon/1')     
 // .then(res => res.json())
 // .then(data => {
 //     const pokeWeight = document.querySelector('.poke-weight');
@@ -33,21 +33,24 @@ async function grabPokemon() {
     const data = await res.json();
     const pokemonArray = [];
     for (let index of data.results) {
-      pokemonArray.push(index.url);
-      return pokemonArray;
+       pokemonArray.push(index['name']);
     }
+          return pokemonArray;
+
   }
-  
-  async function grabSinglePokeURL(url) {
-    const res = await fetch(url);
-    const pokemons = await res.json();
-    return pokemons;
-  }
-  async function inputPokeName(pokemonArray) {
-    const pokeName = pokemonArray["name"];
-    await console.log(pokeName);
-  }
-  
+// Grabs the name of every Pokemon to DOM
+async function setPokeName() {
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
+  const data = await res.json();
+  for (let index of data.results) {
+      const container = document.querySelector('.container');
+ const pokeName = document.createElement('h4');
+  pokeName.innerHTML = index['name'];
+  container.appendChild(pokeName);
+ }
+ 
+}
+setPokeName();
   async function main() {
     await console.log(grabPokemon());
   }
