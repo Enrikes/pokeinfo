@@ -1,3 +1,4 @@
+
 .navi {
     background-color: red;
 }
@@ -21,4 +22,7 @@
 }
 .poke-type-two {
     text-transform: capitalize;
+}
+.container {
+    color: white;
 }
