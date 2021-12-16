@@ -28,22 +28,57 @@
 // });
 
 // This grabs the pokemon name to DOM
+const container = document.querySelector('.container');
+
 async function grabPokemon() {
     const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
     const data = await res.json();
 
     for (let index of data.results) {
       const pokemonNames = index['name']
-      const container = document.querySelector('.container');
       const pokeName = document.createElement('h4');
       pokeName.innerHTML = pokemonNames;
       container.appendChild(pokeName);
     }
   }
+async function grabPokemonInfo(){
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
+  const data = await res.json();
+  const basePokeInfo = data.results;
+  const array = [];
+  
+  for (const pokemon of basePokeInfo) {
+    array.push(await getSinglePokeUrl(pokemon.url));
+  }
+  for (const singlePokemon of array) {
+    console.log(singlePokemon.types['0']['type']['name']);
+    const pokemonType = singlePokemon.types
+    const pokeTypeDom = document.createElement('p');
+    // Two type pokemon checker
+    if (pokemonType.length === 2) {
+      pokeTypeDom.textContent = `${pokemonType['0']['type']['name']} / ${pokemonType['1']['type']['name']} `;
+      container.appendChild(pokeTypeDom);
 
+    } else {
+      pokeTypeDom.textContent = pokemonType['0']['type']['name']
+      container.appendChild(pokeTypeDom);
+
+    }
+  }
+  return array
+}
+
+async function getSinglePokeUrl(url) {
+  const res = await fetch(url);
+  const data = await res.json();
+  return data;
+  
+}
 
   async function main() {
     grabPokemon();
+    await console.log(grabPokemonInfo(1));
+    
   }
   main();
   
