@@ -1,84 +1,75 @@
-// fetch('https://pokeapi.co/api/v2/pokemon/1')     
-// .then(res => res.json())
-// .then(data => {
-//     const pokeWeight = document.querySelector('.poke-weight');
-//     const pokeHeight = document.querySelector('.poke-height');
-//     const pokeName = document.querySelectorAll('.poke-name');
-//     const pokeTypeOne = document.querySelector ('.poke-type-one');
-//     const pokeTypeTwo = document.querySelector('.poke-type-two');
-//     const pokeImage = document.querySelectorAll('.poke-front-image');
-//     console.log(data['sprites']['front_default']);
-//     pokeWeight.textContent = data['weight'];
-//     pokeHeight.textContent = data['height'];
-//     pokeName.textContent = data['name'];
-//     document.getElementById("poke-front-image").src = data['sprites']['front_default'];
-//     const pokeType = data['types'];
-//     const pokeFirstType = pokeType[0];
-//     const pokeSecondType = pokeType[1];
-
-//     pokeTypeOne.textContent = pokeFirstType['type']['name'];
-
-//     if(pokeSecondType){
-//         pokeTypeTwo.textContent = pokeSecondType['type']['name'];
-//     } else {
-//         pokeTypeTwo.classList.add('hide');
-//         pokeSecondType.textContent = '';
-//     };
-
-// });
-
 // This grabs the pokemon name to DOM
-const container = document.querySelector('.container');
+// Global Variables
+const container = document.querySelector(".container");
+const pokeCardWrapper = document.querySelector(".pokeCardWrapper");
+// Card Body
+const card = document.createElement("div");
+card.className = "pokeCard";
+pokeCardWrapper.appendChild(card);
+// Card Title
+const cardTitle = document.createElement("h1");
+cardTitle.className = "cardTitle";
+cardTitle.innerHTML = grabPokemon();
+card.appendChild(cardTitle);
+// Card Desc
+const cardDesc = document.createElement("p");
+cardDesc.className = "cardDesc";
 
+//Grabs pokemon name
 async function grabPokemon() {
-    const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
-    const data = await res.json();
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
+  const data = await res.json();
+  const pokeNamesArray = [];
 
-    for (let index of data.results) {
-      const pokemonNames = index['name']
-      const pokeName = document.createElement('h4');
-      pokeName.innerHTML = pokemonNames;
-      container.appendChild(pokeName);
-    }
+  for (const index of data.results) {
+    const pokeNames = index.name;
+    pokeNamesArray.push(pokeNames);
   }
-async function grabPokemonInfo(){
+  console.log(pokeNamesArray);
+  return pokeNamesArray;
+}
+async function grabPokemonInfo() {
   const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
   const data = await res.json();
   const basePokeInfo = data.results;
   const array = [];
-  
+
   for (const pokemon of basePokeInfo) {
     array.push(await getSinglePokeUrl(pokemon.url));
   }
   for (const singlePokemon of array) {
-    console.log(singlePokemon.types['0']['type']['name']);
-    const pokemonType = singlePokemon.types
-    const pokeTypeDom = document.createElement('p');
+    console.log(singlePokemon.types["0"]["type"]["name"]);
+    const pokemonType = singlePokemon.types;
+    const pokeTypeDom = document.createElement("p");
     // Two type pokemon checker
     if (pokemonType.length === 2) {
-      pokeTypeDom.textContent = `${pokemonType['0']['type']['name']} / ${pokemonType['1']['type']['name']} `;
-      container.appendChild(pokeTypeDom);
-
+      pokeTypeDom.textContent = `${pokemonType["0"]["type"]["name"]} / ${pokemonType["1"]["type"]["name"]} `;
+      const cardDesc = document.createElement("p");
+      cardDesc.className = "cardDesc";
+      card.appendChild(cardDesc);
     } else {
-      pokeTypeDom.textContent = pokemonType['0']['type']['name']
-      container.appendChild(pokeTypeDom);
-
+      pokeTypeDom.textContent = pokemonType["0"]["type"]["name"];
+      const cardDesc = document.createElement("p");
+      cardDesc.className = "cardDesc";
+      card.appendChild(cardDesc);
     }
+    return singlePokemon;
   }
-  return array
+  return array;
 }
 
 async function getSinglePokeUrl(url) {
   const res = await fetch(url);
   const data = await res.json();
   return data;
-  
+}
+async function createCard() {
+  const res = await fetch(pokeNamesArray);
+  const data = await res.json();
 }
 
-  async function main() {
-    grabPokemon();
-    await console.log(grabPokemonInfo(1));
-    
-  }
-  main();
-  
+async function main() {
+  console.log(grabPokemon());
+  createCard();
+}
+main();
