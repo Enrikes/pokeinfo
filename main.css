@@ -7,12 +7,14 @@
     padding-left: 5px;
     text-align: center;
 }
-.card { 
+.pokeCard { 
     text-align: center;
-    background-color: black;
-    outline: grey;
+    background-color: #121212;
     border-radius: 10px;
     padding: 10px;
+    color: white;
+    margin: 5px;
+    
 }
 .poke-name {
     text-transform: capitalize;
