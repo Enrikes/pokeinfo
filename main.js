@@ -7,26 +7,23 @@ const card = document.createElement("div");
 card.className = "pokeCard";
 pokeCardWrapper.appendChild(card);
 // Card Title
-const cardTitle = document.createElement("h1");
-cardTitle.className = "cardTitle";
-cardTitle.innerHTML = grabPokemon();
-card.appendChild(cardTitle);
+// const cardTitle = document.createElement("h1");
+// cardTitle.className = "cardTitle";
+// cardTitle.innerHTML = grabPokemon();
+// card.appendChild(cardTitle);
 // Card Desc
 const cardDesc = document.createElement("p");
 cardDesc.className = "cardDesc";
+const pokeArray = [];
 
 //Grabs pokemon name
 async function grabPokemon() {
   const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
   const data = await res.json();
-  const pokeNamesArray = [];
-
-  for (const index of data.results) {
-    const pokeNames = index.name;
-    pokeNamesArray.push(pokeNames);
+  for (const pokemon of data.results) {
+    pokeArray.push(await getSinglePokeUrl(pokemon.url));
   }
-  console.log(pokeNamesArray);
-  return pokeNamesArray;
+  return pokeArray;
 }
 async function grabPokemonInfo() {
   const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
@@ -64,12 +61,14 @@ async function getSinglePokeUrl(url) {
   return data;
 }
 async function createCard() {
-  const res = await fetch(pokeNamesArray);
-  const data = await res.json();
+  for (pokeCardInfo of pokeArray) {
+    console.log(pokeCardInfo["name"]);
+    return pokeCardInfo;
+  }
 }
 
 async function main() {
-  console.log(grabPokemon());
-  createCard();
+  await console.log(createCard());
+  await console.log(grabPokemon());
 }
 main();
