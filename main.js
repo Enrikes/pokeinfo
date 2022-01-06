@@ -14,21 +14,34 @@ const cardDesc = document.createElement("p");
 cardDesc.className = "cardDesc";
 const pokeArray = [];
 //Grabs pokemon name
+
 async function grabPokemon() {
   const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
   const data = await res.json();
-  const card = document.createElement("div");
-  pokeCardWrapper.appendChild(card);
-  card.className = "pokeCard";
 
   for (const pokemon of data.results) {
     pokeArray.push(await getSinglePokeUrl(pokemon.url));
-  }
-  for (pokemonNameDom of pokeArray) {
-    card.innerHTML = pokemonNameDom.name;
-  }
 
-  for (pokemonTypeDom of pokeArray) {
+    // pokeCardWrapper.appendChild(card);
+    console.log(pokemon);
+  }
+}
+async function pokeTypeDom() {
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
+  const data = await res.json();
+  while (data.results === 3) {
+    console.log(data.results);
+    const card = document.createElement("div");
+    cardTitle.className = "pokeCard";
+    cardTitle.innerHTML = pokemon.name;
+    pokeCardWrapper.appendChild(card);
+
+    data.results++;
+  }
+  for (pokemonTypeDom of data.results) {
+    pokeArray.push(await getSinglePokeUrl(pokemonTypeDom.url));
+    console.log(pokeArray);
+
     console.log(pokemonTypeDom["types"]["0"]["type"]["name"]);
     // Pokemon Type Checker
     if (pokemonTypeDom["types"].length === 2) {
@@ -62,5 +75,6 @@ async function getSinglePokeUrl(url) {
 async function main() {
   // console.log(await createCard());
   console.log(await grabPokemon());
+  console.log(await pokeTypeDom());
 }
 main();
