@@ -22,39 +22,6 @@ async function grabPokemon() {
   }
   return pokeArray;
 }
-async function pokeTypeDom() {
-  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
-  const data = await res.json();
-  while (data.results === 3) {
-    console.log(data.results);
-    const card = document.createElement("div");
-    cardTitle.className = "pokeCard";
-    cardTitle.innerHTML = pokemon.name;
-    pokeCardWrapper.appendChild(card);
-
-    data.results++;
-  }
-  for (pokemonTypeDom of data.results) {
-    pokeArray.push(await getSinglePokeUrl(pokemonTypeDom.url));
-    console.log(pokeArray);
-
-    console.log(pokemonTypeDom["types"]["0"]["type"]["name"]);
-    // Pokemon Type Checker
-    if (pokemonTypeDom["types"].length === 2) {
-      const typeOne = pokemonTypeDom["types"]["0"]["type"]["name"];
-      const typeTwo = pokemonTypeDom["types"]["1"]["type"]["name"];
-      const cardDesc = document.createElement("p");
-      cardDesc.innerHTML = `${typeOne}/${typeTwo}`;
-      card.appendChild(cardDesc);
-      console.log("theres two types here");
-    } else {
-      const typeOne = pokemonTypeDom["types"]["0"]["type"]["name"];
-      cardDesc.innerHTML = `${typeOne}`;
-      console.log("there is one type here");
-    }
-  }
-  return pokeArray;
-}
 
 async function getSinglePokeUrl(url) {
   const res = await fetch(url);
@@ -63,11 +30,13 @@ async function getSinglePokeUrl(url) {
 }
 function createPokeCard(pokemon) {
   const card = document.createElement("div");
+  card.className = "pokeCard";
   const pokemonName = pokemon.name;
   const pokeType = pokemon["types"];
+  const pokeImage = pokemon["sprites"]["front_default"];
 
-  console.log(pokemon["types"]);
   card.innerHTML += `
+  <img src="${pokeImage}">
   <h1>${pokemonName}</h1>
   `;
   if (pokeType.length === 2) {
