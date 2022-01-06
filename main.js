@@ -1,7 +1,6 @@
 // This grabs the pokemon name to DOM
 // Global Variables
 const container = document.querySelector(".container");
-const pokeCardWrapper = document.querySelector(".pokeCardWrapper");
 // Card Body
 
 // Card Title
@@ -12,19 +11,16 @@ const pokeCardWrapper = document.querySelector(".pokeCardWrapper");
 // Card Desc
 const cardDesc = document.createElement("p");
 cardDesc.className = "cardDesc";
-const pokeArray = [];
 //Grabs pokemon name
 
 async function grabPokemon() {
   const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
   const data = await res.json();
-
+  const pokeArray = [];
   for (const pokemon of data.results) {
     pokeArray.push(await getSinglePokeUrl(pokemon.url));
-
-    // pokeCardWrapper.appendChild(card);
-    console.log(pokemon);
   }
+  return pokeArray;
 }
 async function pokeTypeDom() {
   const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
@@ -65,16 +61,34 @@ async function getSinglePokeUrl(url) {
   const data = await res.json();
   return data;
 }
-// async function createCard() {
-//   for (const pokeCardInfo of pokeArray) {
-//     console.log(pokeCardInfo["name"]);
-//     return pokeCardInfo;
-//   }
-// }
+function createPokeCard(pokemon) {
+  const card = document.createElement("div");
+  const pokemonName = pokemon.name;
+  const pokeType = pokemon["types"];
+
+  console.log(pokemon["types"]);
+  card.innerHTML += `
+  <h1>${pokemonName}</h1>
+  `;
+  if (pokeType.length === 2) {
+    const pokeTypeOneDom = pokeType["0"]["type"]["name"];
+    const pokeTypeTwoDom = pokeType["1"]["type"]["name"];
+    card.innerHTML += `<p>${pokeTypeOneDom}/${pokeTypeTwoDom}</p>`;
+  } else {
+    const pokeTypeDom = document.createElement("p");
+    const pokeTypeOneDom = pokeType["0"]["type"]["name"];
+    pokeTypeDom.innerHTML = pokeTypeOneDom;
+    card.appendChild(pokeTypeDom);
+  }
+  return card;
+}
 
 async function main() {
   // console.log(await createCard());
-  console.log(await grabPokemon());
-  console.log(await pokeTypeDom());
+  const pokemonArray = await grabPokemon();
+  const pokeCardWrapper = document.querySelector("#pokeCardWrapper");
+  for (const pokemon of pokemonArray) {
+    pokeCardWrapper.appendChild(createPokeCard(pokemon));
+  }
 }
 main();
