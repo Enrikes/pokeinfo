@@ -12,14 +12,22 @@ const container = document.querySelector(".container");
 const cardDesc = document.createElement("p");
 cardDesc.className = "cardDesc";
 //Grabs pokemon name
-
+let a = 0;
+function nextPoke(pokeOffset) {
+  console.log(a);
+  const pokeApi = `https://pokeapi.co/api/v2/pokemon?offset=${pokeOffset}limit=10`;
+  console.log(pokeOffset);
+  return pokeApi;
+}
 async function grabPokemon() {
+  const pokeApi = "https://pokeapi.co/api/v2/pokemon?limit=10";
   const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
   const data = await res.json();
   const pokeArray = [];
   for (const pokemon of data.results) {
     pokeArray.push(await getSinglePokeUrl(pokemon.url));
   }
+
   return pokeArray;
 }
 
@@ -31,12 +39,13 @@ async function getSinglePokeUrl(url) {
 function createPokeCard(pokemon) {
   const card = document.createElement("div");
   card.className = "pokeCard";
+  card.className += " col-md-6";
   const pokemonName = pokemon.name;
   const pokeType = pokemon["types"];
   const pokeImage = pokemon["sprites"]["front_default"];
 
   card.innerHTML += `
-  <img src="${pokeImage}">
+  <img id="pokeImage" src="${pokeImage}">
   <h1>${pokemonName}</h1>
   `;
   if (pokeType.length === 2) {
@@ -55,7 +64,7 @@ function createPokeCard(pokemon) {
 async function main() {
   // console.log(await createCard());
   const pokemonArray = await grabPokemon();
-  const pokeCardWrapper = document.querySelector("#pokeCardWrapper");
+  const pokeCardWrapper = document.querySelector(".row");
   for (const pokemon of pokemonArray) {
     pokeCardWrapper.appendChild(createPokeCard(pokemon));
   }
