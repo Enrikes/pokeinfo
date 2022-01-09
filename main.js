@@ -93,6 +93,11 @@ function createPokeCard(pokemon) {
         pokeTypeContainer.innerHTML += "Fire";
         card.appendChild(pokeTypeContainer);
         break;
+        case "flying":
+          pokeTypeContainer.classList.add("pokemon-type-flying");
+          pokeTypeContainer.innerHTML += "Flying";
+          card.appendChild(pokeTypeContainer);
+          break;
     }
     switch (pokeTypeTwoDom) {
       case "grass":
@@ -110,6 +115,11 @@ function createPokeCard(pokemon) {
         pokeTypeTwoContainer.innerHTML += "Fire";
         card.appendChild(pokeTypeTwoContainer);
         break;
+        case "flying":
+          pokeTypeTwoContainer.classList.add("pokemon-type-flying");
+          pokeTypeTwoContainer.innerHTML += "Flying";
+          card.appendChild(pokeTypeTwoContainer);
+          break;
     }
     card.innerHTML += `<p>${pokeTypeOneDom}/${pokeTypeTwoDom}</p>`;
   } else {
@@ -129,6 +139,11 @@ function createPokeCard(pokemon) {
       case "fire":
         pokeTypeContainer.classList.add("pokemon-type-fire");
         pokeTypeContainer.innerHTML += "Fire";
+        card.appendChild(pokeTypeContainer);
+        break;
+        case "flying":
+        pokeTypeContainer.classList.add("pokemon-type-flying");
+        pokeTypeContainer.innerHTML += "Flying";
         card.appendChild(pokeTypeContainer);
         break;
     }

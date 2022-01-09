@@ -86,12 +86,12 @@ body {
   display: inline-block;
 }
 .pokemon-flying {
-  background-color: #a040a0;
+  background-color: #90AAD7;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
 .pokemon-type-flying {
-  background-color: #a040a0;
+  background-color: #90AAD7;
   border-radius: 10px;
   width: 80px;
   font-weight: bold;
