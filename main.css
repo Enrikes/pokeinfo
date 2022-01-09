@@ -46,13 +46,55 @@ body {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
+.pokemon-type-grass {
+  background-color: #78c850;
+  border-radius: 10px;
+  width: 80px;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+}
 .pokemon-fire {
   background-color: #f08030;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
+.pokemon-type-fire {
+  background-color: #f08030;
+  border-radius: 10px;
+  width: 80px;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+}
 .pokemon-water {
   background-color: #6890f0;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+}
+.pokemon-poison {
+  background-color: #a040a0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.pokemon-type-poison {
+  background-color: #a040a0;
+  border-radius: 10px;
+  width: 80px;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+}
+.pokemon-flying {
+  background-color: #a040a0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.pokemon-type-flying {
+  background-color: #a040a0;
+  border-radius: 10px;
+  width: 80px;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
 }
