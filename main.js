@@ -74,12 +74,71 @@ function createPokeCard(pokemon) {
   if (pokeType.length === 2) {
     const pokeTypeOneDom = pokeType["0"]["type"]["name"];
     const pokeTypeTwoDom = pokeType["1"]["type"]["name"];
+    const pokeTypeContainer = document.createElement("div");
+    const pokeTypeTwoContainer = document.createElement("div");
+
+    switch (pokeTypeOneDom) {
+      case "grass":
+        pokeTypeContainer.classList.add("pokemon-type-grass");
+        pokeTypeContainer.innerHTML += "grass";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "poison":
+        pokeTypeContainer.classList.add("pokemon-type-poison");
+        pokeTypeContainer.innerHTML += "Poison";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "fire":
+        pokeTypeContainer.classList.add("pokemon-type-fire");
+        pokeTypeContainer.innerHTML += "Fire";
+        card.appendChild(pokeTypeContainer);
+        break;
+    }
+    switch (pokeTypeTwoDom) {
+      case "grass":
+        pokeTypeTwoContainer.classList.add("pokemon-type-grass");
+        pokeTypeTwoContainer.innerHTML += "grass";
+        card.appendChild(pokeTypeTwoContainer);
+        break;
+      case "poison":
+        pokeTypeTwoContainer.classList.add("pokemon-type-poison");
+        pokeTypeTwoContainer.innerHTML += "Poison";
+        card.appendChild(pokeTypeTwoContainer);
+        break;
+      case "fire":
+        pokeTypeTwoContainer.classList.add("pokemon-type-fire");
+        pokeTypeTwoContainer.innerHTML += "Fire";
+        card.appendChild(pokeTypeTwoContainer);
+        break;
+    }
     card.innerHTML += `<p>${pokeTypeOneDom}/${pokeTypeTwoDom}</p>`;
   } else {
-    const pokeTypeDom = document.createElement("p");
-    const pokeTypeOneDom = pokeType["0"]["type"]["name"];
-    pokeTypeDom.innerHTML = pokeTypeOneDom;
-    card.appendChild(pokeTypeDom);
+    const pokeTypeContainer = document.createElement("div");
+
+    switch (pokeTypeOneDom) {
+      case "grass":
+        pokeTypeContainer.classList.add("pokemon-type-grass");
+        pokeTypeContainer.innerHTML += "grass";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "poison":
+        pokeTypeContainer.classList.add("pokemon-type-poison");
+        pokeTypeContainer.innerHTML += "Poison";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "fire":
+        pokeTypeContainer.classList.add("pokemon-type-fire");
+        pokeTypeContainer.innerHTML += "Fire";
+        card.appendChild(pokeTypeContainer);
+        break;
+    }
+    // const pokeTypeDom = document.createElement("p");
+    // const pokeTypeOneDom = pokeType["0"]["type"]["name"];
+    // pokeTypeDom.innerHTML = pokeTypeOneDom;
+    // card.appendChild(pokeTypeDom);
+  }
+  for (const pokemonTypeContainerDom of pokeType) {
+    console.log(pokemonTypeContainerDom);
   }
 
   return card;
