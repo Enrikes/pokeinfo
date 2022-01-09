@@ -15,25 +15,44 @@ body {
   border-radius: 10px;
   color: white;
   margin: 5px;
-}
-.poke-name {
   text-transform: capitalize;
+  width: 50%;
+  max-width: 400px;
+  min-width: 400px;
+  height: 500px;
+  display: inline-block;
 }
-.poke-type-one {
-  text-transform: capitalize;
-}
-.poke-type-two {
-  text-transform: capitalize;
-}
+
 .container {
   color: white;
 }
 
-#pokeCardWrapper {
+.pokeCardWrapper {
   color: white;
+  margin: auto;
+  width: 50%;
 }
-#pokeImage {
-  width: 20%;
-  max-width: 20%;
+#poke-Image {
+  width: 200px;
   min-width: 20%;
+}
+#pokeImageContainer {
+  background-color: red;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.pokemon-grass {
+  background-color: #78c850;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.pokemon-fire {
+  background-color: #f08030;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.pokemon-water {
+  background-color: #6890f0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
