@@ -41,6 +41,8 @@ body {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
+
+/* Pokemon Color Types */
 .pokemon-grass {
   background-color: #78c850;
   border-top-right-radius: 10px;
@@ -72,6 +74,14 @@ body {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
+.pokemon-type-water {
+  background-color: #6890f0;
+  border-radius: 10px;
+  width: 80px;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+}
 .pokemon-poison {
   background-color: #a040a0;
   border-top-right-radius: 10px;
@@ -86,12 +96,25 @@ body {
   display: inline-block;
 }
 .pokemon-flying {
-  background-color: #90AAD7;
+  background-color: #90aad7;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
 .pokemon-type-flying {
-  background-color: #90AAD7;
+  background-color: #90aad7;
+  border-radius: 10px;
+  width: 80px;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+}
+.pokemon-bug {
+  background-color: #a8b820;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.pokemon-type-bug {
+  background-color: #a8b820;
   border-radius: 10px;
   width: 80px;
   font-weight: bold;
