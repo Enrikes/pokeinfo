@@ -35,7 +35,6 @@ body {
   overflow-x: auto;
 }
 .pokeCardWrapper::-webkit-scrollbar {
-  display: none;
 }
 #poke-Image {
   width: 200px;
@@ -120,6 +119,136 @@ body {
 }
 .pokemon-type-bug {
   background-color: #a8b820;
+  border-radius: 10px;
+  width: 80px;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+}
+.pokemon-normal {
+  background-color: #a8a878;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.pokemon-type-normal {
+  background-color: #a8a878;
+  border-radius: 10px;
+  width: 80px;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+}
+.pokemon-electric {
+  background-color: #f8d030;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.pokemon-type-electric {
+  background-color: #f8d030;
+  border-radius: 10px;
+  width: 80px;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+}
+.pokemon-ground {
+  background-color: #e0c068;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.pokemon-type-ground {
+  background-color: #e0c068;
+  border-radius: 10px;
+  width: 80px;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+}
+.pokemon-fairy {
+  background-color: #ee99ac;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.pokemon-type-fairy {
+  background-color: #ee99ac;
+  border-radius: 10px;
+  width: 80px;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+}
+.pokemon-fighting {
+  background-color: #c03028;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.pokemon-type-fighting {
+  background-color: #c03028;
+  border-radius: 10px;
+  width: 80px;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+}
+.pokemon-psychic {
+  background-color: #f85888;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.pokemon-type-psychic {
+  background-color: #f85888;
+  border-radius: 10px;
+  width: 80px;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+}
+.pokemon-rock {
+  background-color: #b8a038;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.pokemon-type-rock {
+  background-color: #b8a038;
+  border-radius: 10px;
+  width: 80px;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+}
+.pokemon-ghost {
+  background-color: #705898;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.pokemon-type-ghost {
+  background-color: #705898;
+  border-radius: 10px;
+  width: 80px;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+}
+.pokemon-ice {
+  background-color: #98d8d8;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.pokemon-type-ice {
+  background-color: #98d8d8;
+  border-radius: 10px;
+  width: 80px;
+  font-weight: bold;
+  margin: auto;
+  display: inline-block;
+}
+.pokemon-dragon {
+  background-color: #7038f8;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.pokemon-type-dragon {
+  background-color: #7038f8;
   border-radius: 10px;
   width: 80px;
   font-weight: bold;

@@ -14,6 +14,7 @@ export function createPokeCard(pokemon) {
   card.appendChild(pokeImageContainer);
   const pokeId = pokemon.id;
   const pokeIdDom = document.createElement("p");
+  const pokeHeight = pokemon.height;
   pokeIdDom.classList.add("poke-id");
   pokeIdDom.innerHTML = `#${pokeId}`;
   pokeImageContainer.appendChild(pokeIdDom);
@@ -28,7 +29,34 @@ export function createPokeCard(pokemon) {
     pokeImageContainer.classList.add("pokemon-fire");
   } else if (pokeTypeOneDom === "water") {
     pokeImageContainer.classList.add("pokemon-water");
+  } else if (pokeTypeOneDom === "flying") {
+    pokeImageContainer.classList.add("pokemon-flying");
+  } else if (pokeTypeOneDom === "normal") {
+    pokeImageContainer.classList.add("pokemon-normal");
+  } else if (pokeTypeOneDom === "poison") {
+    pokeImageContainer.classList.add("pokemon-poison");
+  } else if (pokeTypeOneDom === "electric") {
+    pokeImageContainer.classList.add("pokemon-electric");
+  } else if (pokeTypeOneDom === "ground") {
+    pokeImageContainer.classList.add("pokemon-ground");
+  } else if (pokeTypeOneDom === "fairy") {
+    pokeImageContainer.classList.add("pokemon-fairy");
+  } else if (pokeTypeOneDom === "fighting") {
+    pokeImageContainer.classList.add("pokemon-fighting");
+  } else if (pokeTypeOneDom === "psychic") {
+    pokeImageContainer.classList.add("pokemon-psychic");
+  } else if (pokeTypeOneDom === "rock") {
+    pokeImageContainer.classList.add("pokemon-rock");
+  } else if (pokeTypeOneDom === "ghost") {
+    pokeImageContainer.classList.add("pokemon-ghost");
+  } else if (pokeTypeOneDom === "ice") {
+    pokeImageContainer.classList.add("pokemon-ice");
+  } else if (pokeTypeOneDom === "dragon") {
+    pokeImageContainer.classList.add("pokemon-dragon");
+  } else if (pokeTypeOneDom === "bug") {
+    pokeImageContainer.classList.add("pokemon-bug");
   }
+
   if (pokeType.length === 2) {
     const pokeTypeOneDom = pokeType["0"]["type"]["name"];
     const pokeTypeTwoDom = pokeType["1"]["type"]["name"];
@@ -59,6 +87,56 @@ export function createPokeCard(pokemon) {
       case "water":
         pokeTypeContainer.classList.add("pokemon-type-water");
         pokeTypeContainer.innerHTML += "Water";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "normal":
+        pokeTypeContainer.classList.add("pokemon-type-normal");
+        pokeTypeContainer.innerHTML += "Normal";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "electric":
+        pokeTypeContainer.classList.add("pokemon-type-electric");
+        pokeTypeContainer.innerHTML += "Electric";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "ground":
+        pokeTypeContainer.classList.add("pokemon-type-ground");
+        pokeTypeContainer.innerHTML += "Ground";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "fairy":
+        pokeTypeContainer.classList.add("pokemon-type-fairy");
+        pokeTypeContainer.innerHTML += "Fairy";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "fighting":
+        pokeTypeContainer.classList.add("pokemon-type-fighting");
+        pokeTypeContainer.innerHTML += "Fighting";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "psychic":
+        pokeTypeContainer.classList.add("pokemon-type-psychic");
+        pokeTypeContainer.innerHTML += "Psychic";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "rock":
+        pokeTypeContainer.classList.add("pokemon-type-rock");
+        pokeTypeContainer.innerHTML += "Rock";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "ghost":
+        pokeTypeContainer.classList.add("pokemon-type-ghost");
+        pokeTypeContainer.innerHTML += "Ghost";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "ice":
+        pokeTypeContainer.classList.add("pokemon-type-ice");
+        pokeTypeContainer.innerHTML += "Ice";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "dragon":
+        pokeTypeContainer.classList.add("pokemon-type-dragon");
+        pokeTypeContainer.innerHTML += "Dragon";
         card.appendChild(pokeTypeContainer);
         break;
       case "bug":
@@ -93,6 +171,56 @@ export function createPokeCard(pokemon) {
         pokeTypeTwoContainer.innerHTML += "Water";
         card.appendChild(pokeTypeTwoContainer);
         break;
+      case "normal":
+        pokeTypeTwoContainer.classList.add("pokemon-type-normal");
+        pokeTypeTwoContainer.innerHTML += "Normal";
+        card.appendChild(pokeTypeTwoContainer);
+        break;
+      case "electric":
+        pokeTypeTwoContainer.classList.add("pokemon-type-electric");
+        pokeTypeTwoContainer.innerHTML += "Electric";
+        card.appendChild(pokeTypeTwoContainer);
+        break;
+      case "ground":
+        pokeTypeTwoContainer.classList.add("pokemon-type-ground");
+        pokeTypeTwoContainer.innerHTML += "Ground";
+        card.appendChild(pokeTypeTwoContainer);
+        break;
+      case "fairy":
+        pokeTypeTwoContainer.classList.add("pokemon-type-fairy");
+        pokeTypeTwoContainer.innerHTML += "Fairy";
+        card.appendChild(pokeTypeTwoContainer);
+        break;
+      case "fighting":
+        pokeTypeTwoContainer.classList.add("pokemon-type-fighting");
+        pokeTypeTwoContainer.innerHTML += "Fighting";
+        card.appendChild(pokeTypeTwoContainer);
+        break;
+      case "psychic":
+        pokeTypeTwoContainer.classList.add("pokemon-type-psychic");
+        pokeTypeTwoContainer.innerHTML += "Psychic";
+        card.appendChild(pokeTypeTwoContainer);
+        break;
+      case "rock":
+        pokeTypeTwoContainer.classList.add("pokemon-type-rock");
+        pokeTypeTwoContainer.innerHTML += "Rock";
+        card.appendChild(pokeTypeTwoContainer);
+        break;
+      case "ghost":
+        pokeTypeTwoContainer.classList.add("pokemon-type-ghost");
+        pokeTypeTwoContainer.innerHTML += "Ghost";
+        card.appendChild(pokeTypeTwoContainer);
+        break;
+      case "ice":
+        pokeTypeTwoContainer.classList.add("pokemon-type-ice");
+        pokeTypeTwoContainer.innerHTML += "Ice";
+        card.appendChild(pokeTypeTwoContainer);
+        break;
+      case "dragon":
+        pokeTypeTwoContainer.classList.add("pokemon-type-dragon");
+        pokeTypeTwoContainer.innerHTML += "Dragon";
+        card.appendChild(pokeTypeTwoContainer);
+        break;
       case "bug":
         pokeTypeTwoContainer.classList.add("pokemon-type-bug");
         pokeTypeTwoContainer.innerHTML += "Bug";
@@ -102,7 +230,6 @@ export function createPokeCard(pokemon) {
     // card.innerHTML += `<p>${pokeTypeOneDom}/${pokeTypeTwoDom}</p>`;
   } else {
     const pokeTypeContainer = document.createElement("div");
-
     switch (pokeTypeOneDom) {
       case "grass":
         pokeTypeContainer.classList.add("pokemon-type-grass");
@@ -129,6 +256,56 @@ export function createPokeCard(pokemon) {
         pokeTypeContainer.innerHTML += "Water";
         card.appendChild(pokeTypeContainer);
         break;
+      case "normal":
+        pokeTypeContainer.classList.add("pokemon-type-normal");
+        pokeTypeContainer.innerHTML += "Normal";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "electric":
+        pokeTypeContainer.classList.add("pokemon-type-electric");
+        pokeTypeContainer.innerHTML += "Electric";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "ground":
+        pokeTypeContainer.classList.add("pokemon-type-ground");
+        pokeTypeContainer.innerHTML += "Ground";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "fairy":
+        pokeTypeContainer.classList.add("pokemon-type-fairy");
+        pokeTypeContainer.innerHTML += "Fairy";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "fighting":
+        pokeTypeContainer.classList.add("pokemon-type-fighting");
+        pokeTypeContainer.innerHTML += "Fighting";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "psychic":
+        pokeTypeContainer.classList.add("pokemon-type-psychic");
+        pokeTypeContainer.innerHTML += "Psychic";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "rock":
+        pokeTypeContainer.classList.add("pokemon-type-rock");
+        pokeTypeContainer.innerHTML += "Rock";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "ghost":
+        pokeTypeContainer.classList.add("pokemon-type-ghost");
+        pokeTypeContainer.innerHTML += "Ghost";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "ice":
+        pokeTypeContainer.classList.add("pokemon-type-ice");
+        pokeTypeContainer.innerHTML += "Ice";
+        card.appendChild(pokeTypeContainer);
+        break;
+      case "dragon":
+        pokeTypeContainer.classList.add("pokemon-type-dragon");
+        pokeTypeContainer.innerHTML += "Dragon";
+        card.appendChild(pokeTypeContainer);
+        break;
       case "bug":
         pokeTypeContainer.classList.add("pokemon-type-bug");
         pokeTypeContainer.innerHTML += "Bug";
@@ -136,9 +313,13 @@ export function createPokeCard(pokemon) {
         break;
     }
   }
+  //Pokemon Height
+  const pokeHeightTitle = document.createElement("h3");
+  pokeHeightTitle.innerHTML = `Height: ${pokeHeight}`;
+  card.appendChild(pokeHeightTitle);
+
   //Pokemon card Description
   const pokeDesc = document.createElement("div");
-  console.log(pokemon);
 
   pokeDesc.classList.add("poke-desc");
   card.appendChild(pokeDesc);
