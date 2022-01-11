@@ -20,7 +20,7 @@ body {
   max-width: 400px;
   min-width: 400px;
   height: 500px;
-  display: inline-block;
+  flex: 0 0 auto;
 }
 
 .container {
@@ -30,7 +30,12 @@ body {
 .pokeCardWrapper {
   color: white;
   margin: auto;
-  width: 50%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.pokeCardWrapper::-webkit-scrollbar {
+  display: none;
 }
 #poke-Image {
   width: 200px;
