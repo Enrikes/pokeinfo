@@ -12,6 +12,12 @@ export function createPokeCard(pokemon) {
   const pokeImageDom = document.createElement("img");
   const pokeImageContainer = document.createElement("div");
   card.appendChild(pokeImageContainer);
+  const pokeId = pokemon.id;
+  const pokeIdDom = document.createElement("p");
+  pokeIdDom.classList.add("poke-id");
+  pokeIdDom.innerHTML = `#${pokeId}`;
+  pokeImageContainer.appendChild(pokeIdDom);
+  pokeImageContainer.classList.add("pokeImageContainer");
   pokeImageDom.src = pokeImage;
   pokeImageDom.id = "poke-Image";
   pokeImageContainer.appendChild(pokeImageDom);

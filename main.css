@@ -36,10 +36,10 @@ body {
   width: 200px;
   min-width: 20%;
 }
-#pokeImageContainer {
-  background-color: red;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+.poke-id {
+  position: absolute;
+  margin: 15px;
+  font-weight: bold;
 }
 
 /* Pokemon Color Types */
