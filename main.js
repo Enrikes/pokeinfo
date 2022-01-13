@@ -5,7 +5,7 @@ const cardDesc = document.createElement("p");
 
 cardDesc.className = "cardDesc";
 export async function grabPokemon() {
-  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100");
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=20");
   const data = await res.json();
   const pokeArray = [];
   for (const pokemon of data.results) {
