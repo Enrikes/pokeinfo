@@ -5,12 +5,17 @@ export async function pokeSearch() {
 
   const searchBar = document.getElementById("searchBar");
   searchBar.addEventListener("keyup", (e) => {
+    const filteredPokemonDom = document.querySelector(".poke-card-search");
     const searchString = e.target.value;
     const filteredPokemon = pokemonSearch.filter((pokemonSearch) => {
       return pokemonSearch.name.includes(searchString);
     });
     for (const pokemon of filteredPokemon) {
-      createPokeSearchCard(pokemon);
+      if (searchString.length === 0) {
+        filteredPokemonDom.innerHTML = "";
+      } else {
+        createPokeSearchCard(pokemon);
+      }
     }
   });
 }

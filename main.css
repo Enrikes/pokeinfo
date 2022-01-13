@@ -1,14 +1,18 @@
-body {
-  color: white;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.navi {
+nav {
   background-color: red;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  min-height: 7vh;
 }
-.navi-text {
-  color: white;
-  padding-left: 5px;
-  text-align: center;
+.logo {
 }
+
 .pokeCard {
   text-align: center;
   background-color: #121212;
@@ -40,10 +44,8 @@ body {
   width: 200px;
   min-width: 20%;
 }
-.poke-id {
-  position: absolute;
-  margin: 15px;
-  font-weight: bold;
+.pokemon-card-header {
+  display: inline-block;
 }
 
 /* Pokemon Color Types */
@@ -254,4 +256,50 @@ body {
   font-weight: bold;
   margin: auto;
   display: inline-block;
+}
+@media (max-width: 480px) {
+  .navi {
+    background-color: black;
+  }
+  .pokeCard {
+    display: flex;
+    text-align: center;
+    background-color: #121212;
+    border-radius: 10px;
+    color: white;
+    margin: 5px;
+    text-transform: capitalize;
+    width: 50%;
+    max-width: 400px;
+    min-width: 400px;
+    height: 200px;
+    flex: 0 0 auto;
+  }
+  #poke-Image {
+    width: 150px;
+    min-width: 20%;
+  }
+  .pokeImageContainer {
+    width: 40%;
+    height: 100%;
+    border-bottom-left-radius: 10px;
+  }
+  .poke-desc {
+    position: relative;
+    flex: 1;
+  }
+  .poke-card-search {
+    display: flex;
+    text-align: center;
+    background-color: #121212;
+    border-radius: 10px;
+    color: white;
+    margin: 5px;
+    text-transform: capitalize;
+    width: 50%;
+    max-width: 400px;
+    min-width: 400px;
+    height: 200px;
+    flex: 0 0 auto;
+  }
 }
