@@ -16,10 +16,13 @@ export function createPokeSearchCard(pokemon) {
   pokeHeightTitle.innerHTML = `Height: ${pokeHeight}`;
   const pokeTwo = pokeType;
   const pokeThree = pokeTwo["1"];
-  const filteredPokemonDom = document.querySelector(".poke-card-search");
+  const filteredPokemonDom = document.querySelector(
+    ".poke-card-search-wrapper"
+  );
   if (pokeType.length === 2) {
     const pokeTypeTwoDom = pokeType["1"]["type"]["name"];
     filteredPokemonDom.innerHTML = `
+    <div class="poke-card-search">
   <div class="pokeImageContainer pokemon-${pokeTypeOneDom}">
   <img src="${pokeImage}" id="poke-Image">
   </div>
@@ -28,6 +31,7 @@ export function createPokeSearchCard(pokemon) {
   <div class="pokemon-type-${pokeTypeOneDom}">${pokeTypeOneDom}</div>
   <div class="pokemon-type-${pokeTypeTwoDom}">${pokeTypeTwoDom}</div>
   <h3>Height: ${pokeHeight}</h3>
+  </div>
   </div>
   `;
   } else {

@@ -5,7 +5,9 @@ export async function pokeSearch() {
 
   const searchBar = document.getElementById("searchBar");
   searchBar.addEventListener("keyup", (e) => {
-    const filteredPokemonDom = document.querySelector(".poke-card-search");
+    const filteredPokemonDom = document.querySelector(
+      ".poke-card-search-wrapper"
+    );
     const searchString = e.target.value;
     const filteredPokemon = pokemonSearch.filter((pokemonSearch) => {
       return pokemonSearch.name.includes(searchString);
