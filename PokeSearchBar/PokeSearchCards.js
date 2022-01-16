@@ -36,6 +36,7 @@ export function createPokeSearchCard(pokemon) {
   `;
   } else {
     filteredPokemonDom.innerHTML = `
+    <div class="poke-card-search">
   <div class="pokeImageContainer pokemon-${pokeTypeOneDom}">
   <img src="${pokeImage}" id="poke-Image">
   </div>
@@ -43,6 +44,7 @@ export function createPokeSearchCard(pokemon) {
   <h1>${pokemonName}</h1>
   <div class="pokemon-type-${pokeTypeOneDom}">${pokeTypeOneDom}</div>
   <h3>Height: ${pokeHeight}</h3>
+  </div>
   </div>
   `;
   }

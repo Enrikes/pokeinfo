@@ -26,6 +26,19 @@ nav {
   height: 500px;
   flex: 0 0 auto;
 }
+.poke-card-search-wrapper {
+  text-align: center;
+  background-color: #121212;
+  border-radius: 10px;
+  color: white;
+  margin: 5px;
+  text-transform: capitalize;
+  width: 50%;
+  max-width: 400px;
+  min-width: 400px;
+  height: 500px;
+  flex: 0 0 auto;
+}
 
 .container {
   color: white;
@@ -257,6 +270,7 @@ nav {
   margin: auto;
   display: inline-block;
 }
+
 @media (max-width: 480px) {
   .navi {
     background-color: black;
@@ -288,10 +302,16 @@ nav {
     position: relative;
     flex: 1;
   }
-  .poke-card-search {
+  .poke-card-search-wrapper {
+    color: white;
+    margin: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .poke-card-search-wrapper {
     display: flex;
     text-align: center;
-    background-color: #121212;
     border-radius: 10px;
     color: white;
     margin: 5px;
