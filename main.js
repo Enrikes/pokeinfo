@@ -1,5 +1,6 @@
 import { createPokeCard } from "./PokeCard/pokeTypes.js";
 import { pokeSearch } from "./PokeSearch.js";
+import { nextPokemon } from "./nextPokemon.js";
 
 const cardDesc = document.createElement("p");
 cardDesc.className = "cardDesc";
@@ -25,6 +26,7 @@ export async function getSinglePokeUrl(url) {
   const data = await res.json();
   return data;
 }
+document.getElementById("nextPokemon").addEventListener("click", nextPokemon)
 
 async function main() {
   const pokemonArray = await grabPokemon();
