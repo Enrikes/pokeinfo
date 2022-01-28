@@ -5,26 +5,23 @@ import { replacePokeCard } from "./PokeCard/pokeCardReplace.js";
 const cardDesc = document.createElement("p");
 cardDesc.className = "cardDesc";
 let a = 0;
-
-async function nextPokemon(pokeCard) {
-  pokeCard = document.querySelectorAll("pokeCard");
-  pokeCard.innerHTML = "kek";
+const pokeCard = document.querySelectorAll("pokeCard");
+console.log(pokeCard);
+function removePokemon() {
+  document.getElementsByClassName("pokeCardWrapper")[0].innerHTML = "";
+}
+async function nextPokemon() {
   a += 20;
   console.log(a);
   let b = 20;
   let pokemon = await grabPokemon(a, b);
   let pokemonArrayDom = [];
 
-  function removePokemonCards() {
-    pokeCard.innerHTML = "";
-  }
-  removePokemonCards();
   for (const nextPokemonDom of pokemon) {
     pokeCardWrapper.appendChild(await replacePokeCard(nextPokemonDom));
   }
   return pokemon;
 }
-document.getElementById("nextPokemon").addEventListener("click", nextPokemon);
 
 console.log(replacePokeCard());
 
@@ -53,9 +50,14 @@ async function main() {
   pokeSearch();
   poop();
   const pokeCardWrapper = document.querySelector(".pokeCardWrapper");
+  const pokeCard = document.querySelector("pokeCard");
 
   for (const pokemon of pokemonArray) {
     pokeCardWrapper.appendChild(createPokeCard(pokemon));
   }
+  document.getElementById("nextPokemon").addEventListener("click", () => {
+    removePokemon();
+    nextPokemon();
+  });
 }
 main();
