@@ -8,6 +8,13 @@ export function createPokeCard(pokemon) {
   const pokemonNameDom = document.createElement("h1");
   pokemonNameDom.innerHTML = pokemonName;
   const pokeHeight = pokemon.height;
+  const pokeWeight = pokemon.weight;
+  async function pokeEvolutions() {
+    const res = await fetch("https://pokeapi.co/api/v2/evolution-chain/");
+    const data = await res.json();
+    console.log(data);
+  }
+  pokeEvolutions();
 
   if (pokeType.length === 2) {
     const pokeTypeTwoDom = pokeType["1"]["type"]["name"];
@@ -20,6 +27,9 @@ export function createPokeCard(pokemon) {
   <div class="pokemon-type-${pokeTypeOneDom}">${pokeTypeOneDom}</div>
   <div class="pokemon-type-${pokeTypeTwoDom}">${pokeTypeTwoDom}</div>
   <h3>Height: ${pokeHeight}</h3>
+    <h3>Weight: ${pokeWeight}</h3>
+  <h3>
+
   </div>
   `;
   } else {
@@ -31,6 +41,8 @@ export function createPokeCard(pokemon) {
   <h1>${pokemonName}</h1>
   <div class="pokemon-type-${pokeTypeOneDom}">${pokeTypeOneDom}</div>
   <h3>Height: ${pokeHeight}</h3>
+    <h3>Weight: ${pokeWeight}</h3>
+
   </div>
   `;
   }

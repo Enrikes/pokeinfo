@@ -23,8 +23,6 @@ async function nextPokemon() {
   return pokemon;
 }
 
-console.log(replacePokeCard());
-
 export async function grabPokemon(offset, limit) {
   const res = await fetch(
     `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
@@ -36,9 +34,7 @@ export async function grabPokemon(offset, limit) {
   }
   return pokeArray;
 }
-function poop() {
-  return grabPokemon(10, 20);
-}
+
 export async function getSinglePokeUrl(url) {
   const res = await fetch(url);
   const data = await res.json();
@@ -48,7 +44,7 @@ export async function getSinglePokeUrl(url) {
 async function main() {
   const pokemonArray = await grabPokemon();
   pokeSearch();
-  poop();
+
   const pokeCardWrapper = document.querySelector(".pokeCardWrapper");
   const pokeCard = document.querySelector("pokeCard");
 

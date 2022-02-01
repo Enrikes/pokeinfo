@@ -1,7 +1,4 @@
 export async function replacePokeCard(pokemon) {
-  console.log(pokemon.name);
-  const cardReplace = document.querySelectorAll("pokeCardWrapper");
-  cardReplace.innerHTML = `<div>hi</div>`;
   const newCard = document.createElement("div");
   newCard.classList.add("pokeCard");
   const pokemonName = pokemon.name;
@@ -11,6 +8,7 @@ export async function replacePokeCard(pokemon) {
   const pokemonNameDom = document.createElement("h1");
   pokemonNameDom.innerHTML = pokemonName;
   const pokeHeight = pokemon.height;
+  const pokeWeight = pokemon.weight;
 
   if (pokeType.length === 2) {
     const pokeTypeTwoDom = pokeType["1"]["type"]["name"];
@@ -23,6 +21,7 @@ export async function replacePokeCard(pokemon) {
   <div class="pokemon-type-${pokeTypeOneDom}">${pokeTypeOneDom}</div>
   <div class="pokemon-type-${pokeTypeTwoDom}">${pokeTypeTwoDom}</div>
   <h3>Height: ${pokeHeight}</h3>
+  <h3>Weight: ${pokeWeight}</h3>
   </div>
   `;
   } else {
@@ -34,6 +33,7 @@ export async function replacePokeCard(pokemon) {
   <h1>${pokemonName}</h1>
   <div class="pokemon-type-${pokeTypeOneDom}">${pokeTypeOneDom}</div>
   <h3>Height: ${pokeHeight}</h3>
+    <h3>Weight: ${pokeWeight}</h3>
   </div>
   `;
   }
