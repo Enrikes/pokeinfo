@@ -3,19 +3,46 @@
   padding: 0;
   box-sizing: border-box;
 }
-nav {
-  background-color: red;
-  display: flex;
-  justify-content: space-around;
-  align-content: center;
-  min-height: 7vh;
+body {
+  background-color: #121212;
 }
-.logo {
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10px;
+  background-color: #1f1d36;
+}
+#search-button {
+  cursor: pointer;
+  background-color: #3f3351;
+  padding: 3px;
+  border-radius: 10px;
+  margin-right: 1rem;
+  animation-name: search-click;
+  animation-duration: 1s;
 }
 
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .pokeCard {
   text-align: center;
-  background-color: #121212;
+  background-color: #3f3351;
   border-radius: 10px;
   color: white;
   margin: 5px;
@@ -28,7 +55,7 @@ nav {
 }
 .poke-card-search {
   text-align: center;
-  background-color: #121212;
+  background-color: #3f3351;
   border-radius: 10px;
   color: white;
   margin: 5px;

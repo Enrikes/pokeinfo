@@ -3,17 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Page Title</title>
+    <title>PokeInfo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="icon" type="image/x-icon" href="/imgs/navbar/favicon.png" />
   </head>
   <body>
-    <nav>
-      <i class="fas fa-search"></i>
-      <div class="logo">
-        <h4>PokeInfo</h4>
-      </div>
-    </nav>
+    <header>
+      <img src="imgs/navbar/logo.png" />
+      <nav>
+        <img id="search-button" src="imgs/navbar/mag.png" />
+      </nav>
+    </header>
     <div class="pokeCardWrapper" id="pokeCardWrapper"></div>
     <div class="poke-card-search-wrapper"></div>
     <div class="searchWrapper">
@@ -26,7 +27,8 @@
     </div>
 
     <script type="module" src="main.js"></script>
-            <button id="nextPokemon">test</button>
+    <script src="anime.min.js"></script>
 
+    <button id="nextPokemon">test</button>
   </body>
 </html>
