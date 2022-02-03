@@ -1,3 +1,4 @@
+import { getSinglePokeUrl } from "../main.js";
 export function createPokeCard(pokemon) {
   const card = document.createElement("div");
   card.classList.add("pokeCard");
@@ -10,9 +11,17 @@ export function createPokeCard(pokemon) {
   const pokeHeight = pokemon.height;
   const pokeWeight = pokemon.weight;
   async function pokeEvolutions() {
-    const res = await fetch("https://pokeapi.co/api/v2/evolution-chain/");
+    const res = await fetch(
+      "https://pokeapi.co/api/v2/evolution-chain/?limit=20"
+    );
     const data = await res.json();
+    const pokeEvoArray = [];
+    pokeEvoArray.push(data);
     console.log(data);
+
+    console.log(pokeEvoArray);
+    for (const pokeEvo of data) {
+    }
   }
   pokeEvolutions();
 

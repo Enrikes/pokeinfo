@@ -1,6 +1,21 @@
 import { createPokeCard } from "./PokeCard/pokeTypes.js";
 import { pokeSearch } from "./PokeSearch.js";
 import { replacePokeCard } from "./PokeCard/pokeCardReplace.js";
+import anime from "./node_modules/animejs/lib/anime.es.js";
+
+function searchButton() {
+  document.createElement("input");
+}
+document
+  .getElementById("search-button")
+  .addEventListener("click", searchButton);
+// anime({
+//   targets: "#search-button",
+//   width: "100%",
+//   easing: "easeInOutQuad",
+//   direction: "reverse",
+//   loop: true,
+// });
 
 const cardDesc = document.createElement("p");
 cardDesc.className = "cardDesc";

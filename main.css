@@ -13,14 +13,24 @@ header {
   padding: 30px 10px;
   background-color: #1f1d36;
 }
+.search {
+  top: 0;
+  background-color: #78c850;
+}
 #search-button {
   cursor: pointer;
   background-color: #3f3351;
   padding: 3px;
   border-radius: 10px;
   margin-right: 1rem;
-  animation-name: search-click;
-  animation-duration: 1s;
+}
+#poke-search {
+  position: relative;
+  bottom: 25px;
+  background-color: #3f3351;
+  border: #78c850;
+  height: 50px;
+  display: inline-block;
 }
 
 .loader {
