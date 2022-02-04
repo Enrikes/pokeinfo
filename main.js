@@ -4,18 +4,18 @@ import { replacePokeCard } from "./PokeCard/pokeCardReplace.js";
 import anime from "./node_modules/animejs/lib/anime.es.js";
 
 function searchButton() {
-  document.createElement("input");
+  anime({
+    targets: "#poke-search",
+
+    width: {
+      value: "100px", // 28 - 20 = '8px'
+      duration: 1200,
+    },
+  });
 }
 document
   .getElementById("search-button")
   .addEventListener("click", searchButton);
-// anime({
-//   targets: "#search-button",
-//   width: "100%",
-//   easing: "easeInOutQuad",
-//   direction: "reverse",
-//   loop: true,
-// });
 
 const cardDesc = document.createElement("p");
 cardDesc.className = "cardDesc";
