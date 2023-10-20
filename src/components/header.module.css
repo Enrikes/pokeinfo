@@ -1,0 +1,26 @@
+.search {
+  display: flex;
+}
+#poke-search {
+  bottom: 25px;
+  background-color: #3f3351;
+  border: #78c850;
+  font-size: 20px;
+  width: 0;
+  color: whitesmoke;
+  padding: 10px;
+}
+#search-button {
+  cursor: pointer;
+  background-color: #3f3351;
+  padding: 3px;
+  border-radius: 10px;
+  margin-right: 1rem;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10px;
+  background-color: #1f1d36;
+}

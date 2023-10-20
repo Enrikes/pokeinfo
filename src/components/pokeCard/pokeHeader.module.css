@@ -1,0 +1,16 @@
+#poke-image {
+  width: 200px;
+  min-width: 20%;
+}
+
+@media (max-width: 480px) {
+  #poke-image {
+    width: 150px;
+    min-width: 20%;
+  }
+  .pokeImageContainer {
+    width: 40%;
+    height: 100%;
+    border-bottom-left-radius: 10px;
+  }
+}
