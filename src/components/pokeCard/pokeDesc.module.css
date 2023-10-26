@@ -1,0 +1,6 @@
+@media (max-width: 480px) {
+  .poke-desc {
+    position: relative;
+    flex: 1;
+  }
+}

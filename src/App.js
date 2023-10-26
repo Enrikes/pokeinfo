@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/header';
-import PokeCard from './components/pokeCard';
+import PokeGrid from './components/pokeGrid';
 
 function App() {
   return (
     <div className='App'>
       <Header />
-      <PokeCard />
+      <PokeGrid />
     </div>
   );
 }

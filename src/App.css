@@ -6,3 +6,16 @@
 body {
   background-color: #121212;
 }
+.pokeCard {
+  text-align: center;
+  background-color: #3f3351;
+  border-radius: 10px;
+  color: white;
+  margin: 5px;
+  text-transform: capitalize;
+  width: 50%;
+  max-width: 400px;
+  min-width: 400px;
+  height: 500px;
+  flex: 0 0 auto;
+}

@@ -1,19 +1,15 @@
+import PokeDesc from './pokeDesc';
 import PokeHeader from './pokeHeader';
 import PokeType from './pokeType';
 
 export default function PokeCard({ pokemon }) {
-  const pokeTypeOne = pokemon.types[0].type.name;
-  const pokeTypeTwo = pokemon[types][1][type][name];
   const sprite = pokemon['sprites']['front_default'];
+  const pokeTypeOne = pokemon.types[0].type.name;
+
   return (
-    <div>
-      <PokeHeader type={pokeTypeOne} image={sprite} />
-      <div class='poke-desc'>
-        <h1>{pokenon.name}</h1>
-        <PokeType typeOne={pokeTypeOne} typeTwo={pokeTypeTwo} />
-        <h3>Height: {pokemon.height}</h3>
-        <h3>Weight: {pokemon.weight}</h3>
-      </div>
+    <div className='pokeCard'>
+      <PokeHeader type={pokeTypeOne} sprite={sprite} />
+      <PokeDesc pokemon={pokemon} />
     </div>
   );
 }

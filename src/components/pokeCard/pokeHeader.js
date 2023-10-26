@@ -1,8 +1,10 @@
-import pokeHeaderCSS from './pokeHeader.module.css';
-export default function PokeHeader({ type, sprite }) {
+import pokeImageCSS from './pokeHeader.module.css';
+import pokeHeaderCSS from './pokeType.module.css';
+export default function PokeHeader({ type, sprite, children }) {
+  const pokeHeader = pokeHeaderCSS[`pokemon-${type}`];
   return (
-    <div className={`${pokeHeaderCSS.pokeImageContainer} pokemon-${type}`}>
-      <img src={sprite} id={pokeHeaderCSS['poke-image']}></img>
+    <div className={`${pokeImageCSS.pokeImageContainer} ${pokeHeader}`}>
+      <img src={sprite} id={pokeImageCSS['poke-image']}></img>
     </div>
   );
 }
