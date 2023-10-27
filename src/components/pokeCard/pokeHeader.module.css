@@ -2,6 +2,11 @@
   width: 200px;
   min-width: 20%;
 }
+.pokeImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 @media (max-width: 480px) {
   #poke-image {

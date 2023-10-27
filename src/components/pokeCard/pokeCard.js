@@ -7,9 +7,9 @@ export default function PokeCard({ pokemon }) {
   const pokeTypeOne = pokemon.types[0].type.name;
 
   return (
-    <div className='pokeCard'>
+    <article className='pokeCard'>
       <PokeHeader type={pokeTypeOne} sprite={sprite} />
       <PokeDesc pokemon={pokemon} />
-    </div>
+    </article>
   );
 }
