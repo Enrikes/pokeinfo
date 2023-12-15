@@ -13,6 +13,5 @@ body {
   color: white;
   margin: 5px;
   text-transform: capitalize;
-  width: 50%;
   flex: 0 0 auto;
 }
