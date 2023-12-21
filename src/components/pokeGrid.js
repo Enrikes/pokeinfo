@@ -8,6 +8,7 @@ export default function PokeGrid({}) {
   const [pokemon, setPokemon] = useState([]);
   const [loadingStatus, setLoadingStatus] = useState("idle");
   const [lastPokemonId, setLastPokemonId] = useState(1);
+  const [pokemonNames, setPokemonNames] = useState([]);
   const fetchCalled = useRef(false);
   const observer = useRef(null);
 
@@ -34,6 +35,14 @@ export default function PokeGrid({}) {
     return () => lastElement && observer.current.unobserve(lastElement);
   }, [pokemon]);
 
+  const fetchAllNames = async () => {
+    axios
+      .get("https://pokeapi.co/api/v2/pokemon?limit=1000")
+      .then((response) => {
+        setPokemonNames(response.data.results.map((pokemon) => pokemon.name));
+        console.log(pokemonNames);
+      });
+  };
   const fetchAllPokemons = async () => {
     if (fetchCalled.current) {
       return;
@@ -62,12 +71,13 @@ export default function PokeGrid({}) {
   };
 
   useEffect(() => {
+    fetchAllNames();
     fetchAllPokemons();
   }, []);
 
   return (
     <div>
-      <SearchBar />
+      <SearchBar pokemonNames={pokemonNames} />
       <div className={pokeGridCSS.grid}>
         {pokemon.map((pokemons, index) => (
           <PokeCard pokemon={pokemons} key={pokemons.id} className="pokeCard" />
