@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import PokeCard from "./pokeCard/pokeCard";
 import pokeGridCSS from "./pokeGrid.module.css";
+import SearchBar from "./search";
 
 export default function PokeGrid({}) {
   const [pokemon, setPokemon] = useState([]);
@@ -65,11 +66,14 @@ export default function PokeGrid({}) {
   }, []);
 
   return (
-    <div className={pokeGridCSS.grid}>
-      {pokemon.map((pokemons, index) => (
-        <PokeCard pokemon={pokemons} key={pokemons.id} className="pokeCard" />
-      ))}
-      {loadingStatus === "loading" && <p>Loading...</p>}
+    <div>
+      <SearchBar />
+      <div className={pokeGridCSS.grid}>
+        {pokemon.map((pokemons, index) => (
+          <PokeCard pokemon={pokemons} key={pokemons.id} className="pokeCard" />
+        ))}
+        {loadingStatus === "loading" && <p>Loading...</p>}
+      </div>
     </div>
   );
 }

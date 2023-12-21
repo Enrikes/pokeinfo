@@ -1,6 +1,7 @@
 #poke-image {
   width: 200px;
   min-width: 20%;
+  filter: drop-shadow(5px 5px 5px #222);
 }
 .pokeImageContainer {
   display: flex;
