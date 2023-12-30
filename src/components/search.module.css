@@ -29,7 +29,9 @@
   cursor: pointer;
   font-size: 16px;
 }
-
+.dropdown-item:hover {
+  background-color: #4da6ff;
+}
 .search-dropdown-item:hover {
   background-color: #f0f0f0;
 }
