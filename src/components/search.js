@@ -3,16 +3,27 @@ import searchCSS from "./search.module.css";
 import axios from "axios";
 export default function SearchBar({ pokemonNames }) {
   const [input, setInput] = useState("");
-  console.log(input);
   function searchPokemon(query) {
     return pokemonNames.filter((name) =>
       name.toLowerCase().includes(query.toLowerCase())
     );
   }
+  function dropdownSelection(name) {
+    const input = document.querySelector(`.${searchCSS.input}`);
+    input.value = name;
+  }
   function renderDropdownItems() {
-    console.log("i ran");
     let dropdownItems = searchPokemon(input).map((element) => {
-      return <div className={searchCSS["dropdown-item"]}>{element}</div>;
+      return (
+        <div
+          className={searchCSS["dropdown-item"]}
+          onClick={(e) => {
+            dropdownSelection(element);
+          }}
+        >
+          {element}
+        </div>
+      );
     });
     return dropdownItems;
   }
@@ -28,7 +39,6 @@ export default function SearchBar({ pokemonNames }) {
   const handleChange = (value) => {
     setInput(value);
     // fetchData(value);
-    console.log(searchPokemon(value));
   };
 
   return (
