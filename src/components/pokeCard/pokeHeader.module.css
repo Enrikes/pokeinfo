@@ -8,6 +8,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  width: 100%;
+}
+.id {
+  align-self: flex-start;
+  width: 100%;
+  text-align: left;
 }
 
 @media (max-width: 480px) {

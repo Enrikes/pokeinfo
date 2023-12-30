@@ -8,7 +8,12 @@ export default function PokeCard({ pokemon }) {
 
   return (
     <article className="pokeCard">
-      <PokeHeader type={pokeTypeOne} sprite={sprite} name={pokemon.name} />
+      <PokeHeader
+        type={pokeTypeOne}
+        sprite={sprite}
+        name={pokemon.name}
+        id={pokemon.id}
+      />
       <PokeDesc pokemon={pokemon} />
     </article>
   );

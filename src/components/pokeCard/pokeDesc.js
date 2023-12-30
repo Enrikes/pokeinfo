@@ -8,8 +8,6 @@ export default function PokeDesc({ pokemon }) {
   return (
     <section className={pokeDescCSS["poke-desc"]}>
       <PokeType typeOne={pokeTypeOne} typeTwo={pokeTypeTwo} />
-      <h3>Height: {pokemon.height}</h3>
-      <h3>Weight: {pokemon.weight}</h3>
     </section>
   );
 }
