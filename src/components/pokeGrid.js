@@ -81,7 +81,11 @@ export default function PokeGrid({}) {
       <SearchBar pokemonNames={pokemonNames} />
       <div className={pokeGridCSS.grid}>
         {pokemon.map((pokemons, index) => (
-          <Link to={`/:${pokemons.name}`} state={{ pokemon: pokemons }}>
+          <Link
+            to={`/:${pokemons.name}`}
+            className={pokeGridCSS["link-no-underline"]}
+            state={{ pokemon: pokemons }}
+          >
             <PokeCard
               pokemon={pokemons}
               key={pokemons.id}
