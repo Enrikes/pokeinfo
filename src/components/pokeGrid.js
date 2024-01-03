@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import PokeCard from "./pokeCard/pokeCard";
 import pokeGridCSS from "./pokeGrid.module.css";
 import SearchBar from "./search";
+import { Link } from "react-router-dom";
 
 export default function PokeGrid({}) {
   const [pokemon, setPokemon] = useState([]);
@@ -27,7 +28,7 @@ export default function PokeGrid({}) {
   }, [loadingStatus]);
 
   useEffect(() => {
-    const lastElement = document.querySelector(".pokeCard:last-child");
+    const lastElement = document.querySelector("a:last-child");
     if (lastElement) {
       observer.current.observe(lastElement);
     }
@@ -80,7 +81,13 @@ export default function PokeGrid({}) {
       <SearchBar pokemonNames={pokemonNames} />
       <div className={pokeGridCSS.grid}>
         {pokemon.map((pokemons, index) => (
-          <PokeCard pokemon={pokemons} key={pokemons.id} className="pokeCard" />
+          <Link to={`/:${pokemons.name}`} state={{ pokemon: pokemons }}>
+            <PokeCard
+              pokemon={pokemons}
+              key={pokemons.id}
+              className="pokeCard"
+            />
+          </Link>
         ))}
         {loadingStatus === "loading" && <p>Loading...</p>}
       </div>
