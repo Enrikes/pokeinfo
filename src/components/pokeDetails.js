@@ -7,14 +7,10 @@ export default function PokeDetail({}) {
   const { pokemon } = location.state || {};
   const pokemonImage =
     pokemon["sprites"]["other"]["official-artwork"]["front_default"];
-  console.log(pokemonImage);
-
-  console.log(location);
 
   if (!pokemon) {
     return <div>Loading</div>;
   }
-  console.log(pokemon);
 
   return (
     <div className={pokeDetailsCSS.container}>

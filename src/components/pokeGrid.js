@@ -41,7 +41,6 @@ export default function PokeGrid({}) {
       .get("https://pokeapi.co/api/v2/pokemon?limit=1000")
       .then((response) => {
         setPokemonNames(response.data.results.map((pokemon) => pokemon.name));
-        console.log(pokemonNames);
       });
   };
   const fetchAllPokemons = async () => {

@@ -57,9 +57,6 @@ export default function SearchBar({ pokemonNames }) {
       <div className={searchCSS.dropdown}>
         {input.length > 0 ? renderDropdownItems() : null}
       </div>
-      {/* {pokemonNames.map((item) => (
-        <div className="test">{item}</div>
-      ))} */}
     </div>
   );
 }
