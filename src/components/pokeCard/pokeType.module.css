@@ -5,6 +5,7 @@
   font-weight: bold;
   display: inline-block;
   margin-left: 5px;
+  margin-bottom: 5px;
 }
 .rounded {
   border-top-right-radius: 10px;
