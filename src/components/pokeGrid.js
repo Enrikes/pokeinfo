@@ -81,7 +81,7 @@ export default function PokeGrid({}) {
       <div className={pokeGridCSS.grid}>
         {pokemon.map((pokemons, index) => (
           <Link
-            to={`/:${pokemons.name}`}
+            to={`/${pokemons.name}`}
             className={pokeGridCSS["link-no-underline"]}
             state={{ pokemon: pokemons }}
           >

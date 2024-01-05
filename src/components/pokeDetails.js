@@ -3,6 +3,7 @@ import pokeDetailsCSS from "./pokeDetails.module.css";
 
 export default function PokeDetail({}) {
   const location = useLocation();
+  console.log("i ran fr fr");
 
   const { pokemon } = location.state || {};
   const pokemonImage =
