@@ -1,11 +1,24 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import pokeDetailsCSS from "./pokeDetails.module.css";
+import axios from "axios";
+import { useEffect } from "react";
 
-export default function PokeDetail({}) {
+export default function PokeDetail({ setIsGridVisible }) {
   const location = useLocation();
-  console.log("i ran fr fr");
-
+  const currentPath = location.pathname;
   const { pokemon } = location.state || {};
+  useEffect(() => {
+    return () => {
+      setIsGridVisible(true);
+    };
+  }, [setIsGridVisible]);
+  // if (pokemon === undefined) {
+  //   axios
+  //     .get(`https://pokeapi.co/api/v2/pokemon${currentPath}`)
+  //     .then((response) => {
+  //       pokemon = response.data;
+  //     });
+  // }
   const pokemonImage =
     pokemon["sprites"]["other"]["official-artwork"]["front_default"];
 

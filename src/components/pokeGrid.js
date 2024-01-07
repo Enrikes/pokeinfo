@@ -5,7 +5,7 @@ import pokeGridCSS from "./pokeGrid.module.css";
 import SearchBar from "./search";
 import { Link } from "react-router-dom";
 
-export default function PokeGrid({}) {
+export default function PokeGrid({ setIsGridVisible, isGridVisible }) {
   const [pokemon, setPokemon] = useState([]);
   const [loadingStatus, setLoadingStatus] = useState("idle");
   const [lastPokemonId, setLastPokemonId] = useState(1);
@@ -75,21 +75,26 @@ export default function PokeGrid({}) {
     fetchAllPokemons();
   }, []);
 
+  function handleClick() {
+    setIsGridVisible(false);
+    console.log("yo we out here");
+  }
+
   return (
     <div>
-      <SearchBar pokemonNames={pokemonNames} />
+      {!isGridVisible ? null : <SearchBar pokemonNames={pokemonNames} />}
       <div className={pokeGridCSS.grid}>
         {pokemon.map((pokemons, index) => (
           <Link
             to={`/${pokemons.name}`}
-            className={pokeGridCSS["link-no-underline"]}
+            className={`${pokeGridCSS["link-no-underline"]} ${
+              isGridVisible ? "" : "hidden"
+            }`}
             state={{ pokemon: pokemons }}
+            key={pokemons.id}
+            onClick={handleClick}
           >
-            <PokeCard
-              pokemon={pokemons}
-              key={pokemons.id}
-              className="pokeCard"
-            />
+            <PokeCard pokemon={pokemons} className="pokeCard" />
           </Link>
         ))}
         {loadingStatus === "loading" && <p>Loading...</p>}
