@@ -5,20 +5,8 @@ import { useEffect } from "react";
 
 export default function PokeDetail({ setIsGridVisible }) {
   const location = useLocation();
-  const currentPath = location.pathname;
   const { pokemon } = location.state || {};
-  useEffect(() => {
-    return () => {
-      setIsGridVisible(true);
-    };
-  }, [setIsGridVisible]);
-  // if (pokemon === undefined) {
-  //   axios
-  //     .get(`https://pokeapi.co/api/v2/pokemon${currentPath}`)
-  //     .then((response) => {
-  //       pokemon = response.data;
-  //     });
-  // }
+
   const pokemonImage =
     pokemon["sprites"]["other"]["official-artwork"]["front_default"];
 

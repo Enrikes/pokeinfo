@@ -77,7 +77,7 @@ export default function PokeGrid({ setIsGridVisible, isGridVisible }) {
 
   function handleClick() {
     setIsGridVisible(false);
-    console.log("yo we out here");
+    console.log("Ive set it to false!");
   }
 
   return (

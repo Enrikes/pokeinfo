@@ -10,16 +10,6 @@ import { useState } from "react";
 function App() {
   const [isGridVisible, setIsGridVisible] = useState(true);
 
-  let location = useLocation();
-  if (!isGridVisible) {
-  }
-
-  // Check if the current location is the detail view
-  const isDetailView = location.pathname.includes("pokemonName");
-  if (!isDetailView) {
-    console.log("ive been clicked!");
-    document.querySelector(`.${pokeGridCSS.grid}`);
-  }
   return (
     <div className="App">
       <Header />
