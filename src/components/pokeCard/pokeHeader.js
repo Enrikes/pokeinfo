@@ -1,7 +1,6 @@
 import pokeImageCSS from "./pokeHeader.module.css";
 import pokeHeaderCSS from "./pokeType.module.css";
 export default function PokeHeader({ type, sprite, name, id }) {
-  const pokeHeader = pokeHeaderCSS[`pokemon-${type}`];
   function formatID(id) {
     return id.toString().padStart(4, "0");
   }
