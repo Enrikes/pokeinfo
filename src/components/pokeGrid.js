@@ -5,7 +5,11 @@ import pokeGridCSS from "./pokeGrid.module.css";
 import SearchBar from "./search";
 import { Link } from "react-router-dom";
 
-export default function PokeGrid({ setIsGridVisible, isGridVisible }) {
+export default function PokeGrid({
+  setIsGridVisible,
+  isGridVisible,
+  scrollPOS,
+}) {
   const [pokemon, setPokemon] = useState([]);
   const [loadingStatus, setLoadingStatus] = useState("idle");
   const [lastPokemonId, setLastPokemonId] = useState(1);
@@ -76,6 +80,7 @@ export default function PokeGrid({ setIsGridVisible, isGridVisible }) {
   }, []);
 
   function handleClick() {
+    scrollPOS.current = window.scrollY;
     setIsGridVisible(false);
     console.log("Ive set it to false!");
   }
