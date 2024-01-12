@@ -13,9 +13,7 @@ function App() {
   const currentPath = location.pathname;
 
   useEffect(() => {
-    if (currentPath === "/") {
-      setIsGridVisible(true);
-    }
+    setIsGridVisible(currentPath === "/");
   }, [location]);
 
   useEffect(() => {
