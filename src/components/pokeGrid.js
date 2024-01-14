@@ -82,7 +82,6 @@ export default function PokeGrid({
   function handleClick() {
     scrollPOS.current = window.scrollY;
     setIsGridVisible(false);
-    console.log("Ive set it to false!");
   }
 
   return (
