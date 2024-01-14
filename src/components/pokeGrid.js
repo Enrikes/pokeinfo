@@ -25,7 +25,7 @@ export default function PokeGrid({
           fetchAllPokemons();
         }
       },
-      { rootMargin: "100px" }
+      { rootMargin: "200px" }
     );
 
     return () => observer.current && observer.current.disconnect();
