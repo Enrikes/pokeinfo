@@ -1,11 +1,9 @@
-import headerCSS from './header.module.css';
+import headerCSS from "./header.module.css";
 export default function Header({}) {
   return (
     <header className={headerCSS.header}>
       <nav>
-        <div className={headerCSS.search}>
-          <input id={headerCSS['poke-search']} type='text' />
-        </div>
+        <h1 className={headerCSS.name}>PokeInfo</h1>
       </nav>
     </header>
   );
