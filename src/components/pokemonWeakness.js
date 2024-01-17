@@ -57,3 +57,4 @@ const pokemonWeakness = {
     weakness: ["fairy", "bug", "fighting"],
   },
 };
+export default pokemonWeakness;
