@@ -26,4 +26,5 @@ header {
 }
 .name{
   color: white;
+  cursor: pointer;
 }

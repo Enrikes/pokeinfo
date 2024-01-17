@@ -25,7 +25,7 @@ function App() {
   const Home = () => null;
   return (
     <div className="App">
-      <Header />
+      <Header setIsGridVisible={setIsGridVisible} />
       <PokeGrid
         scrollPOS={scrollPOS}
         setIsGridVisible={setIsGridVisible}
