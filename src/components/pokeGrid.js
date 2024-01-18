@@ -32,7 +32,9 @@ export default function PokeGrid({
   }, [loadingStatus]);
 
   useEffect(() => {
-    const lastElement = document.querySelector("a:last-child");
+    const lastElement = document.querySelector(
+      `.${pokeGridCSS["poke-anchor"]}:last-child`
+    );
     if (lastElement) {
       observer.current.observe(lastElement);
     }
@@ -92,8 +94,8 @@ export default function PokeGrid({
           <Link
             to={`/${pokemons.name}`}
             className={`${pokeGridCSS["link-no-underline"]} ${
-              isGridVisible ? "" : "hidden"
-            }`}
+              pokeGridCSS["poke-anchor"]
+            } ${isGridVisible ? "" : "hidden"}`}
             state={{ pokemon: pokemons }}
             key={pokemons.id}
             onClick={handleClick}
