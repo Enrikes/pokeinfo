@@ -1,19 +1,43 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import searchCSS from "./search.module.css";
 import axios from "axios";
 export default function SearchBar({ pokemonNames }) {
   const [input, setInput] = useState("");
+  const [renderPokemon, setRenderPokemon] = useState([]);
+  const inputField = useRef(null);
+
+  function isEmpty(input) {
+    if (input.length === 0) {
+      return true;
+    }
+  }
+
+  useEffect(() => {
+    if (inputField.current) {
+      const inputText = inputField.current.value;
+      if (isEmpty(inputText)) {
+        setRenderPokemon([]);
+        return;
+      }
+    }
+    const pokemonResults = searchPokemon(input);
+
+    setRenderPokemon(pokemonResults);
+  }, [input]);
+
   function searchPokemon(query) {
     return pokemonNames.filter((name) =>
       name.toLowerCase().includes(query.toLowerCase())
     );
   }
+
   function dropdownSelection(name) {
     const input = document.querySelector(`.${searchCSS.input}`);
     input.value = name;
   }
+
   function renderDropdownItems() {
-    let dropdownItems = searchPokemon(input).map((element) => {
+    let dropdownItems = renderPokemon.map((element) => {
       return (
         <div
           className={searchCSS["dropdown-item"]}
@@ -27,19 +51,23 @@ export default function SearchBar({ pokemonNames }) {
     });
     return dropdownItems;
   }
+  // console.log(renderPokemon);
   const fetchData = (value) => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${value}`)
-      .then((res) => res.json())
-      .then((json) => {
-        const results = json.filter;
-      });
+      .then((res) => console.log(res.data));
   };
 
   const handleChange = (value) => {
     setInput(value);
     // fetchData(value);
   };
+  function handleSubmit() {
+    console.log("submit");
+    renderPokemon.forEach((pokemon) => {
+      console.log(fetchData(pokemon));
+    });
+  }
 
   return (
     <div className={searchCSS.wrapper}>
@@ -50,6 +78,12 @@ export default function SearchBar({ pokemonNames }) {
         title="Search for a Pokemon by name"
         placeholder="Type a pokemon..."
         value={input}
+        ref={inputField}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleSubmit();
+          }
+        }}
         onChange={(e) => {
           handleChange(e.target.value);
         }}

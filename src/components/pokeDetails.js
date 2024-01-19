@@ -1,5 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
 import pokeDetailsCSS from "./pokeDetails.module.css";
+import pokemonWeakness from "./pokemonWeakness";
 import axios from "axios";
 import { useEffect } from "react";
 
@@ -13,6 +14,12 @@ export default function PokeDetail({ setIsGridVisible }) {
   if (!pokemon) {
     return <div>Loading</div>;
   }
+  // console.log(pokemon);
+  function getPreferences(type) {
+    return pokemonWeakness[type];
+  }
+  // console.log(pokemon?.types[0].type.name);
+  // console.log(getPreferences(pokemon?.types[0].type.name));
 
   return (
     <div className={pokeDetailsCSS.container}>
