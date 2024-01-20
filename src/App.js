@@ -5,9 +5,14 @@ import PokeGrid from "./components/pokeGrid";
 import PokeDetail from "./components/pokeDetails";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
+import SearchGrid from "./components/searchGrid";
+import SearchBar from "./components/search";
 
 function App() {
   const [isGridVisible, setIsGridVisible] = useState(true);
+  const [searchedPokemon, setSearchedPokemon] = useState([]);
+  const [pokemonNames, setPokemonNames] = useState([]);
+
   let scrollPOS = useRef(0);
   const location = useLocation();
   const currentPath = location.pathname;
@@ -26,11 +31,30 @@ function App() {
   return (
     <div className="App">
       <Header setIsGridVisible={setIsGridVisible} />
-      <PokeGrid
-        scrollPOS={scrollPOS}
-        setIsGridVisible={setIsGridVisible}
-        isGridVisible={isGridVisible}
-      />
+      {!isGridVisible ? null : (
+        <SearchBar
+          pokemonNames={pokemonNames}
+          setSearchedPokemon={setSearchedPokemon}
+        />
+      )}
+      {Object.keys(searchedPokemon).length > 0 ? (
+        <SearchGrid
+          scrollPOS={scrollPOS}
+          setIsGridVisible={setIsGridVisible}
+          isGridVisible={isGridVisible}
+          searchedPokemon={searchedPokemon}
+          setSearchedPokemon={setSearchedPokemon}
+        />
+      ) : (
+        <PokeGrid
+          scrollPOS={scrollPOS}
+          setIsGridVisible={setIsGridVisible}
+          isGridVisible={isGridVisible}
+          setSearchedPokemon={setSearchedPokemon}
+          setPokemonNames={setPokemonNames}
+        />
+      )}
+
       <Routes>
         <Route path="/" Component={Home} />
         <Route

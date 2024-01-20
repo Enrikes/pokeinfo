@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import searchCSS from "./search.module.css";
 import axios from "axios";
-export default function SearchBar({ pokemonNames }) {
+export default function SearchBar({ pokemonNames, setSearchedPokemon }) {
   const [input, setInput] = useState("");
   const [renderPokemon, setRenderPokemon] = useState([]);
   const inputField = useRef(null);
@@ -17,6 +17,7 @@ export default function SearchBar({ pokemonNames }) {
       const inputText = inputField.current.value;
       if (isEmpty(inputText)) {
         setRenderPokemon([]);
+        setSearchedPokemon([]);
         return;
       }
     }
@@ -55,9 +56,8 @@ export default function SearchBar({ pokemonNames }) {
   const fetchData = (value) => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${value}`)
-      .then((res) => console.log(res.data));
+      .then((res) => setSearchedPokemon([res.data]));
   };
-
   const handleChange = (value) => {
     setInput(value);
     // fetchData(value);

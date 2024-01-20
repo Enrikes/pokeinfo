@@ -2,18 +2,19 @@ import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import PokeCard from "./pokeCard/pokeCard";
 import pokeGridCSS from "./pokeGrid.module.css";
-import SearchBar from "./search";
+import SearchBar from "./search.js";
 import { Link } from "react-router-dom";
 
 export default function PokeGrid({
   setIsGridVisible,
   isGridVisible,
   scrollPOS,
+  setSearchedPokemon,
+  setPokemonNames,
 }) {
   const [pokemon, setPokemon] = useState([]);
   const [loadingStatus, setLoadingStatus] = useState("idle");
   const [lastPokemonId, setLastPokemonId] = useState(1);
-  const [pokemonNames, setPokemonNames] = useState([]);
   const fetchCalled = useRef(false);
   const observer = useRef(null);
 
@@ -88,7 +89,12 @@ export default function PokeGrid({
 
   return (
     <div>
-      {!isGridVisible ? null : <SearchBar pokemonNames={pokemonNames} />}
+      {/* {!isGridVisible ? null : (
+        <SearchBar
+          pokemonNames={pokemonNames}
+          setSearchedPokemon={setSearchedPokemon}
+        />
+      )} */}
       <div className={pokeGridCSS.grid}>
         {pokemon.map((pokemons, index) => (
           <Link
