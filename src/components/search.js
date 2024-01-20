@@ -52,7 +52,6 @@ export default function SearchBar({ pokemonNames, setSearchedPokemon }) {
     });
     return dropdownItems;
   }
-  // console.log(renderPokemon);
   const fetchData = (value) => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${value}`)
@@ -63,10 +62,7 @@ export default function SearchBar({ pokemonNames, setSearchedPokemon }) {
     // fetchData(value);
   };
   function handleSubmit() {
-    console.log("submit");
-    renderPokemon.forEach((pokemon) => {
-      console.log(fetchData(pokemon));
-    });
+    renderPokemon.forEach((pokemon) => {});
   }
 
   return (
