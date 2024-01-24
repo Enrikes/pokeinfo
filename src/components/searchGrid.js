@@ -2,7 +2,6 @@ import { useState } from "react";
 import PokeCard from "./pokeCard/pokeCard";
 import pokeGridCSS from "./pokeGrid.module.css";
 import { Link } from "react-router-dom";
-import SearchBar from "./search";
 
 export default function SearchGrid({
   setIsGridVisible,

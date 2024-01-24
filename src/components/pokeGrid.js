@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import PokeCard from "./pokeCard/pokeCard";
 import pokeGridCSS from "./pokeGrid.module.css";
-import SearchBar from "./search.js";
 import { Link } from "react-router-dom";
 
 export default function PokeGrid({

@@ -1,8 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
 import pokeDetailsCSS from "./pokeDetails.module.css";
 import pokemonWeakness from "./pokemonWeakness";
-import axios from "axios";
-import { useEffect } from "react";
 
 export default function PokeDetail({ setIsGridVisible }) {
   const location = useLocation();
