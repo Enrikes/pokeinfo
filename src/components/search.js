@@ -53,16 +53,18 @@ export default function SearchBar({ pokemonNames, setSearchedPokemon }) {
     return dropdownItems;
   }
   const fetchData = (value) => {
-    axios
-      .get(`https://pokeapi.co/api/v2/pokemon/${value}`)
-      .then((res) => setSearchedPokemon([res.data]));
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${value}`).then((res) => {
+      setSearchedPokemon((prevPokemon) => [...prevPokemon, res.data]);
+    });
   };
   const handleChange = (value) => {
     setInput(value);
-    // fetchData(value);
   };
   function handleSubmit() {
-    renderPokemon.forEach((pokemon) => {});
+    setSearchedPokemon([]);
+    renderPokemon.forEach((pokemon) => {
+      fetchData(pokemon);
+    });
   }
 
   return (
