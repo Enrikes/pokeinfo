@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import searchCSS from "./search.module.css";
 import axios from "axios";
 export default function SearchBar({ pokemonNames, setSearchedPokemon }) {
   const [input, setInput] = useState("");
   const [renderPokemon, setRenderPokemon] = useState([]);
   const inputField = useRef(null);
+  const navigate = useNavigate();
 
   function isEmpty(input) {
     if (input.length === 0) {
@@ -61,6 +63,7 @@ export default function SearchBar({ pokemonNames, setSearchedPokemon }) {
     setInput(value);
   };
   function handleSubmit() {
+    navigate(`/search?query=${encodeURIComponent(input)}`);
     setSearchedPokemon([]);
     renderPokemon.forEach((pokemon) => {
       fetchData(pokemon);

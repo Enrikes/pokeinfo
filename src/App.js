@@ -61,6 +61,18 @@ function App() {
           path="/:pokemonName"
           element={<PokeDetail setIsGridVisible={setIsGridVisible} />}
         />
+        <Route
+          path="/search"
+          element={
+            <SearchGrid
+              scrollPOS={scrollPOS}
+              setIsGridVisible={setIsGridVisible}
+              isGridVisible={isGridVisible}
+              searchedPokemon={searchedPokemon}
+              setSearchedPokemon={setSearchedPokemon}
+            />
+          }
+        />
       </Routes>
     </div>
   );
