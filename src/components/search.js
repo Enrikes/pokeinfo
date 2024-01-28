@@ -63,6 +63,7 @@ export default function SearchBar({ pokemonNames, setSearchedPokemon }) {
     setInput(value);
   };
   function handleSubmit() {
+    if (input === "") return;
     navigate(`/search?query=${encodeURIComponent(input)}`);
     setSearchedPokemon([]);
     renderPokemon.forEach((pokemon) => {
