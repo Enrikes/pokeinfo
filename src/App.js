@@ -18,6 +18,7 @@ function App() {
   const currentPath = location.pathname;
 
   useEffect(() => {
+    if (location.pathname === "/search") return;
     setIsGridVisible(currentPath === "/");
   }, [location]);
 
