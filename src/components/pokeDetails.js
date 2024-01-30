@@ -4,7 +4,12 @@ import pokemonWeakness from "./pokemonWeakness";
 
 export default function PokeDetail({ setIsGridVisible }) {
   const location = useLocation();
+
   const { pokemon } = location.state || {};
+  if (!pokemon) {
+    return <div>Loading...</div>;
+  }
+  console.log("I triggered");
 
   const pokemonImage =
     pokemon["sprites"]["other"]["official-artwork"]["front_default"];
