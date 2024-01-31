@@ -11,6 +11,10 @@ export default function SearchGrid({
   setSearchedPokemon,
 }) {
   const [loadingStatus, setLoadingStatus] = useState("idle");
+  // if(isGridVisible){
+
+  // }
+  console.log(isGridVisible);
   function handleClick() {
     scrollPOS.current = window.scrollY;
     setIsGridVisible(false);
@@ -22,7 +26,7 @@ export default function SearchGrid({
           to={`/${pokemons.name}`}
           className={`${pokeGridCSS["link-no-underline"]} ${
             pokeGridCSS["poke-anchor"]
-          } ${isGridVisible ? "" : "hidden"}`}
+          } ${isGridVisible ? "hidden" : ""}`}
           state={{ searchedPokemon: pokemons }}
           key={pokemons.id}
           onClick={handleClick}

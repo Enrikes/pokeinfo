@@ -2,7 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import searchCSS from "./search.module.css";
 import axios from "axios";
-export default function SearchBar({ pokemonNames, setSearchedPokemon }) {
+export default function SearchBar({
+  pokemonNames,
+  setSearchedPokemon,
+  setIsGridVisible,
+}) {
   const [input, setInput] = useState("");
   const [renderPokemon, setRenderPokemon] = useState([]);
   const inputField = useRef(null);
@@ -69,13 +73,7 @@ export default function SearchBar({ pokemonNames, setSearchedPokemon }) {
     setSearchedPokemon([]);
     const promises = renderPokemon.map((pokemon) => fetchData(pokemon));
     await Promise.all(promises);
-
-    // await Promise.all(
-    //   renderPokemon.forEach((pokemon) => {
-    //     console.log("i ran");
-    //     fetchData(pokemon);
-    //   })
-    // );
+    setIsGridVisible(false);
     navigate(`/search?query=${encodeURIComponent(input)}`);
   }
 
