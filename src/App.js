@@ -36,17 +36,10 @@ function App() {
         <SearchBar
           pokemonNames={pokemonNames}
           setSearchedPokemon={setSearchedPokemon}
+          setIsGridVisible={setIsGridVisible}
         />
       )}
-      {Object.keys(searchedPokemon).length > 0 ? (
-        <SearchGrid
-          scrollPOS={scrollPOS}
-          setIsGridVisible={setIsGridVisible}
-          isGridVisible={isGridVisible}
-          searchedPokemon={searchedPokemon}
-          setSearchedPokemon={setSearchedPokemon}
-        />
-      ) : (
+      {Object.keys(searchedPokemon).length > 0 ? null : (
         <PokeGrid
           scrollPOS={scrollPOS}
           setIsGridVisible={setIsGridVisible}
