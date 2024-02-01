@@ -28,3 +28,9 @@ header {
   color: white;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+  header{
+    justify-content: center;
+  }
+}
