@@ -16,6 +16,12 @@ function App() {
   let scrollPOS = useRef(0);
   const location = useLocation();
   const currentPath = location.pathname;
+  function gridInSearch() {
+    if (isGridVisible || currentPath === "/search") {
+      return true;
+    }
+    return false;
+  }
 
   useEffect(() => {
     if (location.pathname === "/search") return;
@@ -32,7 +38,7 @@ function App() {
   return (
     <div className="App">
       <Header setIsGridVisible={setIsGridVisible} />
-      {!isGridVisible ? null : (
+      {gridInSearch() && (
         <SearchBar
           pokemonNames={pokemonNames}
           setSearchedPokemon={setSearchedPokemon}
