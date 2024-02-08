@@ -23,7 +23,6 @@ export default function SearchBar({
       const inputText = inputField.current.value;
       if (isEmpty(inputText)) {
         setRenderPokemon([]);
-        setSearchedPokemon([]);
         return;
       }
     }
@@ -76,6 +75,7 @@ export default function SearchBar({
     setIsGridVisible(false);
     navigate(`/search?query=${encodeURIComponent(input)}`);
   }
+  console.log(input);
 
   return (
     <div className={searchCSS.wrapper}>
