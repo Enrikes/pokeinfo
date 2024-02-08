@@ -36,7 +36,10 @@ function App() {
   const Home = () => null;
   return (
     <div className="App">
-      <Header setIsGridVisible={setIsGridVisible} />
+      <Header
+        setIsGridVisible={setIsGridVisible}
+        setSearchedPokemon={setSearchedPokemon}
+      />
       {gridInSearch() && (
         <SearchBar
           pokemonNames={pokemonNames}

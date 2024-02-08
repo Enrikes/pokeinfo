@@ -1,9 +1,10 @@
 import headerCSS from "./header.module.css";
 import { Link } from "react-router-dom";
 
-export default function Header({ setIsGridVisible }) {
+export default function Header({ setIsGridVisible, setSearchedPokemon }) {
   function handleClick() {
     setIsGridVisible(true);
+    setSearchedPokemon([]);
   }
   return (
     <header className={headerCSS.header}>
