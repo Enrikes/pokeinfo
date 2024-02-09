@@ -14,7 +14,6 @@ export default function SearchGrid({
   // if(isGridVisible){
 
   // }
-  console.log(isGridVisible);
   function handleClick() {
     scrollPOS.current = window.scrollY;
     setIsGridVisible(false);
