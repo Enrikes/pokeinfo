@@ -5,7 +5,12 @@ import pokemonWeakness from "./pokemonWeakness";
 export default function PokeDetail({ setIsGridVisible }) {
   const location = useLocation();
 
-  const { pokemon } = location.state || {};
+  const locationState = location.state || {};
+  const pokemon = {
+    ...(locationState.pokemon || {}),
+    ...(locationState.searchedPokemon || {}),
+  };
+  console.log(pokemon);
   if (!pokemon) {
     return <div>Loading...</div>;
   }
