@@ -11,9 +11,7 @@ export default function SearchGrid({
   setSearchedPokemon,
 }) {
   const [loadingStatus, setLoadingStatus] = useState("idle");
-  // if(isGridVisible){
 
-  // }
   function handleClick() {
     scrollPOS.current = window.scrollY;
     setIsGridVisible(false);
