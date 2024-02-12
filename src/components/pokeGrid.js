@@ -75,7 +75,6 @@ export default function PokeGrid({
       fetchCalled.current = false;
     }
   };
-
   useEffect(() => {
     fetchAllNames();
     fetchAllPokemons();
