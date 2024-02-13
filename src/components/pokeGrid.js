@@ -87,12 +87,6 @@ export default function PokeGrid({
 
   return (
     <div>
-      {/* {!isGridVisible ? null : (
-        <SearchBar
-          pokemonNames={pokemonNames}
-          setSearchedPokemon={setSearchedPokemon}
-        />
-      )} */}
       <div className={pokeGridCSS.grid}>
         {pokemon.map((pokemons, index) => (
           <Link
