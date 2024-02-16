@@ -9,6 +9,8 @@ export default function SearchBar({
 }) {
   const [input, setInput] = useState("");
   const [renderPokemon, setRenderPokemon] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdown = useRef(null);
   const inputField = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -19,7 +21,18 @@ export default function SearchBar({
       return true;
     }
   }
+  console.log(isOpen);
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdown.current && !dropdown.current.contains(event.target)) {
+        console.log(event);
+        setIsOpen(false);
+      }
+    }
 
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  });
   useEffect(() => {
     if (inputField.current) {
       const inputText = inputField.current.value;
@@ -45,6 +58,7 @@ export default function SearchBar({
   }
 
   function renderDropdownItems() {
+    setIsOpen(true);
     let dropdownItems = renderPokemon.map((element) => {
       return (
         <div
@@ -75,6 +89,7 @@ export default function SearchBar({
 
     if (input === "") return;
     setSearchedPokemon([]);
+    console.log("im running");
     const promises = renderPokemon.map((pokemon) => fetchData(pokemon));
     await Promise.all(promises);
     setIsGridVisible(false);
@@ -92,6 +107,16 @@ export default function SearchBar({
     }
     return false;
   }
+  function handleDropdownActive() {
+    if (input.length > 0) {
+      return true;
+    }
+    if (currentPath === "/search") {
+      console.log("search !!!");
+      return false;
+    }
+    return false;
+  }
 
   return (
     <div className={searchCSS.wrapper}>
@@ -106,6 +131,7 @@ export default function SearchBar({
       )}
 
       <form
+        ref={dropdown}
         className={searchCSS["form-wrapper"]}
         // onSubmit={(e) => {
         //   console.log(e);
@@ -129,10 +155,11 @@ export default function SearchBar({
             handleChange(e.target.value);
           }}
         ></input>
-
-        <div className={searchCSS.dropdown}>
-          {input.length > 0 ? renderDropdownItems() : null}
-        </div>
+        {isOpen ? (
+          <div className={searchCSS.dropdown}>
+            {handleDropdownActive() ? renderDropdownItems() : null}
+          </div>
+        ) : null}
       </form>
       <div>Filter</div>
     </div>
