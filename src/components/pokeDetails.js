@@ -1,6 +1,7 @@
 import { useLocation, Link } from "react-router-dom";
 import pokeDetailsCSS from "./pokeDetails.module.css";
 import pokemonWeakness from "./pokemonWeakness";
+import PokeType from "./pokeCard/pokeType";
 
 export default function PokeDetail({ setIsGridVisible }) {
   const location = useLocation();
@@ -14,6 +15,9 @@ export default function PokeDetail({ setIsGridVisible }) {
   if (!pokemon) {
     return <div>Loading...</div>;
   }
+  const pokeTypeOne = pokemon.types[0].type.name;
+  const pokeTypeTwo = pokemon?.types[1]?.type.name;
+
   console.log("I triggered");
 
   const pokemonImage =
@@ -22,6 +26,7 @@ export default function PokeDetail({ setIsGridVisible }) {
   if (!pokemon) {
     return <div>Loading</div>;
   }
+  console.log(pokemon);
   function getPreferences(type) {
     return pokemonWeakness[type];
   }
@@ -40,7 +45,9 @@ export default function PokeDetail({ setIsGridVisible }) {
             src={pokemonImage}
           ></img>
         </article>
-        <article className={pokeDetailsCSS.background2}>geee</article>
+        <article className={pokeDetailsCSS.background2}>
+          <PokeType typeOne={pokeTypeOne} typeTwo={pokeTypeTwo} />
+        </article>
       </section>
     </div>
   );
